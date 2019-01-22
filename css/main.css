@@ -1,0 +1,10 @@
+@import './search.css';
+@import './schedule.css';
+@import './clock.css';
+
+.message {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    font-size: 300%;
+}

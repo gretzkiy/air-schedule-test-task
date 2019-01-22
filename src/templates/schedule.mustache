@@ -1,0 +1,16 @@
+<div class="container">
+    <table border="1">
+        <tr>
+            <th>Время</th>
+            <th>Направление</th>
+            <th>Номер рейса</th>
+        </tr>
+        {{#flights}}
+        <tr>
+            <th>{{#departure}}{{formatDate}}{{/departure}}{{#arrival}}{{formatDate}}{{/arrival}}</th>
+            <th>{{thread.short_title}}</th>
+            <th>{{thread.number}}</th>
+        </tr>
+        {{/flights}}
+    </table>
+</div>
