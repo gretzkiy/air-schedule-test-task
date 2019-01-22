@@ -1,6 +1,7 @@
 const express = require('express');
 const fallback = require('express-history-api-fallback');
 const https = require('https');
+const config = require('./config.js');
 
 const app = express();
 const rootDir = `${__dirname}`;
@@ -13,11 +14,10 @@ app.use('/api',  (request, response) => {
     }
 
     const event = request.query.event;
-    const apikey = '03c803be-9eff-482e-919b-1562f756f54c';
     const now = new Date();
     const today = now.toISOString().split('T')[0];
 
-    const url = `https://api.rasp.yandex.net/v3.0/schedule/?apikey=${apikey}&station=svo&lang=ru_RU&format=json&date=${today}&transport_types=plane&event=${event}&system=iata`;
+    const url = `https://api.rasp.yandex.net/v3.0/schedule/?apikey=${config.apikey}&station=svo&lang=ru_RU&format=json&date=${today}&transport_types=plane&event=${event}&system=iata`;
 
     console.log('Making request to ', url);
     
