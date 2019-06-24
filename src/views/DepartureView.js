@@ -1,5 +1,5 @@
-import BaseView from "./BaseView.js";
-import Schedule from "../modules/Schedule.js"
+import BaseView from './BaseView.js';
+import Schedule from '../modules/Schedule.js';
 import Mustache from 'mustache';
 import tableTemplate from '../templates/schedule.mustache';
 
@@ -23,13 +23,13 @@ export default class MenuView extends BaseView {
         scheduler.getSchedule('departure')
             .then(schedule => {
                 const viewData = {
-                    "flights": schedule,
-                    "formatDate": function() {
+                    'flights': schedule,
+                    'formatDate': function() {
                         const time = new Date(this);
                         const localTime = time.toLocaleString('ru');
                         return localTime;
                     }
-                }
+                };
                 
                 const div = document.createElement('div');
                 div.innerHTML = Mustache.render(tableTemplate, viewData);

@@ -34,7 +34,7 @@ export default class Schedule {
 
     // ввиду отсутствия в api расписания информации о задержках, они генерируются случайным образом, если время уже прошло
     getDelays() {
-        let depDelays = new Promise((resolve, reject) => {
+        let depDelays = new Promise(resolve => {
             const delays = [];
             const timeNow = new Date();
             
@@ -69,7 +69,7 @@ export default class Schedule {
             }
         });
 
-        let arrDelays = new Promise((resolve, reject) => {
+        let arrDelays = new Promise(resolve => {
             const delays = [];
             const timeNow = new Date();
 
@@ -104,13 +104,13 @@ export default class Schedule {
             }
         });
 
-        return Promise.all([depDelays, arrDelays])
+        return Promise.all([depDelays, arrDelays]);
     }
 
     search(query) {
         query = query.replace(/\s/g, '').toLowerCase();
 
-        let depSearch = new Promise((resolve, reject) => {
+        let depSearch = new Promise(resolve => {
             const results = [];
 
             if (this.schedule.departure) {
@@ -140,7 +140,7 @@ export default class Schedule {
             }
         });
 
-        let arrSearch = new Promise((resolve, reject) => {
+        let arrSearch = new Promise(resolve => {
             const results = [];
 
             if (this.schedule.arrival) {
@@ -170,7 +170,7 @@ export default class Schedule {
             }
         });
 
-        return Promise.all([depSearch, arrSearch])
+        return Promise.all([depSearch, arrSearch]);
     }
 
     downloadSchedule(event) {

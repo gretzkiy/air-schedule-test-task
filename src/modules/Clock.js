@@ -6,12 +6,14 @@ export default function startClock(divId) {
     mm = checkTime(mm);
     ss = checkTime(ss);
     document.getElementById(divId).innerHTML = `${hh}:${mm}:${ss}`;
-    setTimeout(() => { startClock(divId) }, 500);
+    setTimeout(() => {
+        startClock(divId);
+    }, 500);
 }
 
 function checkTime(i) {
     if (i < 10) {
-        i = "0" + i
-    };
+        i = '0' + i;
+    }
     return i;
 }

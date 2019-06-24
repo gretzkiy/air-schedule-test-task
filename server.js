@@ -1,3 +1,4 @@
+/* eslint-disable */
 const express = require('express');
 const fallback = require('express-history-api-fallback');
 const https = require('https');

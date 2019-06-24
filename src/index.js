@@ -3,9 +3,9 @@ import ArrivalView from './views/ArrivalView.js';
 import SearchView from './views/SearchView.js';
 import DelaysView from './views/DelaysView.js';
 import Router from './modules/Router.js';
-import baseTemplate from './templates/base.mustache'
-import searchTemplate from './templates/search.mustache'
-import clockTemplate from './templates/clock.mustache'
+import baseTemplate from './templates/base.mustache';
+import searchTemplate from './templates/search.mustache';
+import clockTemplate from './templates/clock.mustache';
 import Mustache from 'mustache';
 import startClock from './modules/Clock.js';
 import '../css/main.css';
@@ -32,7 +32,7 @@ window.router
     .register('/departure', DepartureView)
     .register('/arrival', ArrivalView)
     .register('/delays', DelaysView)
-    .register('/search', SearchView)
+    .register('/search', SearchView);
 
 window.router.start();
 
@@ -42,7 +42,7 @@ searchButton.addEventListener('click', (event) => {
     const searchInput = document.getElementsByClassName('search__input')[0];
     const searchQuery = searchInput.value;
     searchInput.value = '';
-    router.open('/search', searchQuery);
+    window.router.open('/search', searchQuery);
 });
 
 startClock('clock');

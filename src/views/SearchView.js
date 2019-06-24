@@ -1,5 +1,5 @@
-import BaseView from "./BaseView.js";
-import Schedule from "../modules/Schedule.js"
+import BaseView from './BaseView.js';
+import Schedule from '../modules/Schedule.js';
 import Mustache from 'mustache';
 import tableTemplate from '../templates/schedule.mustache';
 
@@ -31,13 +31,13 @@ export default class SearchView extends BaseView {
                     results = results[0].concat(results[1]);
                     if (results.length > 0) {
                         const viewData = {
-                            "flights": results,
-                            "formatDate": function () {
+                            'flights': results,
+                            'formatDate': function () {
                                 const time = new Date(this);
                                 const localTime = time.toLocaleString('ru');
                                 return localTime;
                             }
-                        }
+                        };
 
                         const div = document.createElement('div');
                         div.innerHTML = Mustache.render(tableTemplate, viewData);
@@ -62,7 +62,7 @@ export default class SearchView extends BaseView {
     noEntriesFound(searchSection, params) {
         const div = document.createElement('div');
         if (/^\s+$/.test(params) || !params) {
-            div.innerHTML = `<div class="message">Пустой поисковый запрос</div>`;
+            div.innerHTML = '<div class="message">Пустой поисковый запрос</div>';
         } else {
             div.innerHTML = `<div class="message">По запросу &nbsp<b>${params}</b>&nbsp ничего не нашлось</div>`;
         }

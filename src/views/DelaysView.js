@@ -1,6 +1,6 @@
-import BaseView from "./BaseView.js";
+import BaseView from './BaseView.js';
 import Mustache from 'mustache';
-import Schedule from "../modules/Schedule.js"
+import Schedule from '../modules/Schedule.js';
 import tableTemplate from '../templates/schedule.mustache';
 
 export default class MenuView extends BaseView {
@@ -24,13 +24,13 @@ export default class MenuView extends BaseView {
             .then(delays => {
                 delays = delays[0].concat(delays[1]);
                 const viewData = {
-                    "flights": delays,
-                    "formatDate": function () {
+                    'flights': delays,
+                    'formatDate': function () {
                         const time = new Date(this);
                         const localTime = time.toLocaleString('ru');
                         return localTime;
                     }
-                }
+                };
 
                 const div = document.createElement('div');
                 div.innerHTML = Mustache.render(tableTemplate, viewData);
