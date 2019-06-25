@@ -16,7 +16,7 @@ export default class Router {
      */
     register(path, View) {
         this.routes[path] = {
-            View: View,
+            View,
             view: null,
             el: null,
         };
@@ -40,25 +40,26 @@ export default class Router {
             window.history.pushState(
                 null,
                 '',
-                path
+                path,
             );
         }
 
-        let { View, view, el } = route;
+        const View = route;
+        let { view, el } = route;
 
         if (!el) {
             el = document.createElement('section');
             this.root.appendChild(el);
         }
-        
+
         if (!view) {
             view = new View(el);
         }
 
         if (!view.active) {
-            Object.values(this.routes).forEach(({ view }) => {
-                if (view && view.active) {
-                    view.hide();
+            Object.values(this.routes).forEach(({ _view }) => {
+                if (_view && _view.active) {
+                    _view.hide();
                 }
             });
         }
@@ -67,7 +68,7 @@ export default class Router {
     }
 
     start() {
-        this.root.addEventListener('click', function (event) {
+        this.root.addEventListener('click', event => {
             if (!(event.target instanceof HTMLAnchorElement)) {
                 return;
             }
@@ -76,16 +77,16 @@ export default class Router {
             const link = event.target;
 
             console.log({
-                pathname: link.pathname
+                pathname: link.pathname,
             });
 
             this.open(link.pathname);
-        }.bind(this));
+        });
 
-        window.addEventListener('popstate', function () {
+        window.addEventListener('popstate', () => {
             const currentPath = window.location.pathname;
             this.open(currentPath);
-        }.bind(this));
+        });
 
         const currentPath = window.location.pathname;
 

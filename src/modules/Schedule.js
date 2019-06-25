@@ -5,8 +5,8 @@ export default class Schedule {
         }
 
         this.schedule = {
-            'departure': null,
-            'arrival': null
+            departure: null,
+            arrival: null,
         };
 
         Schedule.__instance = this;
@@ -16,30 +16,29 @@ export default class Schedule {
         if (this.schedule[event]) {
             console.log('Schedule from cache.');
             return Promise.resolve(this.schedule[event]);
-        } else {
-            console.log('Performing api request.');
-            return this.downloadSchedule(event)
-                .then(response => {
-                    return response.json();
-                })
-                .then(data => {
-                    this.schedule[event] = data.schedule;
-                    return this.schedule[event];
-                })
-                .catch(error => {
-                    console.log(error);
-                });
         }
+
+        console.log('Performing api request.');
+        return Schedule.downloadSchedule(event)
+            .then(response => response.json())
+            .then(data => {
+                this.schedule[event] = data.schedule;
+                return this.schedule[event];
+            })
+            .catch(error => {
+                console.log(error);
+            });
     }
 
-    // ввиду отсутствия в api расписания информации о задержках, они генерируются случайным образом, если время уже прошло
+    // ввиду отсутствия в api расписания информации о задержках,
+    //     они генерируются случайным образом, если время уже прошло
     getDelays() {
-        let depDelays = new Promise(resolve => {
+        const depDelays = new Promise(resolve => {
             const delays = [];
             const timeNow = new Date();
-            
+
             if (this.schedule.departure) {
-                this.schedule.departure.forEach((flight) => {
+                this.schedule.departure.forEach(flight => {
                     const timeDep = new Date(flight.departure);
                     const isDelayed = Math.floor(Math.random() * 2) === 1;
                     if (timeNow - timeDep > 0 && isDelayed) {
@@ -48,13 +47,11 @@ export default class Schedule {
                 });
                 resolve(delays);
             } else {
-                this.downloadSchedule('departure')
-                    .then(response => {
-                        return response.json();
-                    })
+                Schedule.downloadSchedule('departure')
+                    .then(response => response.json())
                     .then(data => {
                         this.schedule.departure = data.schedule;
-                        this.schedule.departure.forEach((flight) => {
+                        this.schedule.departure.forEach(flight => {
                             const timeDep = new Date(flight.departure);
                             const isDelayed = Math.floor(Math.random() * 2) === 1;
                             if (timeNow - timeDep > 0 && isDelayed) {
@@ -69,12 +66,12 @@ export default class Schedule {
             }
         });
 
-        let arrDelays = new Promise(resolve => {
+        const arrDelays = new Promise(resolve => {
             const delays = [];
             const timeNow = new Date();
 
             if (this.schedule.arrival) {
-                this.schedule.arrival.forEach((flight) => {
+                this.schedule.arrival.forEach(flight => {
                     const timeArr = new Date(flight.departure);
                     const isDelayed = Math.floor(Math.random() * 2) === 1;
                     if (timeNow - timeArr > 0 && isDelayed) {
@@ -83,13 +80,11 @@ export default class Schedule {
                 });
                 resolve(delays);
             } else {
-                this.downloadSchedule('arrival')
-                    .then(response => {
-                        return response.json();
-                    })
+                Schedule.downloadSchedule('arrival')
+                    .then(response => response.json())
                     .then(data => {
                         this.schedule.arrival = data.schedule;
-                        this.schedule.arrival.forEach((flight) => {
+                        this.schedule.arrival.forEach(flight => {
                             const timeArr = new Date(flight.departure);
                             const isDelayed = Math.floor(Math.random() * 2) === 1;
                             if (timeNow - timeArr > 0 && isDelayed) {
@@ -107,27 +102,25 @@ export default class Schedule {
         return Promise.all([depDelays, arrDelays]);
     }
 
-    search(query) {
-        query = query.replace(/\s/g, '').toLowerCase();
+    search(_query) {
+        const query = _query.replace(/\s/g, '').toLowerCase();
 
-        let depSearch = new Promise(resolve => {
+        const depSearch = new Promise(resolve => {
             const results = [];
 
             if (this.schedule.departure) {
-                this.schedule.departure.forEach((flight) => {
+                this.schedule.departure.forEach(flight => {
                     if (flight.thread.number.replace(/\s/g, '').toLowerCase().indexOf(query) !== -1) {
                         results.push(flight);
                     }
                 });
                 resolve(results);
             } else {
-                this.downloadSchedule('departure')
-                    .then(response => {
-                        return response.json();
-                    })
+                Schedule.downloadSchedule('departure')
+                    .then(response => response.json())
                     .then(data => {
                         this.schedule.departure = data.schedule;
-                        this.schedule.departure.forEach((flight) => {
+                        this.schedule.departure.forEach(flight => {
                             if (flight.thread.number.replace(/\s/g, '').toLowerCase().indexOf(query) !== -1) {
                                 results.push(flight);
                             }
@@ -140,24 +133,22 @@ export default class Schedule {
             }
         });
 
-        let arrSearch = new Promise(resolve => {
+        const arrSearch = new Promise(resolve => {
             const results = [];
 
             if (this.schedule.arrival) {
-                this.schedule.arrival.forEach((flight) => {
+                this.schedule.arrival.forEach(flight => {
                     if (flight.thread.number.replace(/\s/g, '').toLowerCase().indexOf(query) !== -1) {
                         results.push(flight);
                     }
                 });
                 resolve(results);
             } else {
-                this.downloadSchedule('arrival')
-                    .then(response => {
-                        return response.json();
-                    })
+                Schedule.downloadSchedule('arrival')
+                    .then(response => response.json())
                     .then(data => {
                         this.schedule.arrival = data.schedule;
-                        this.schedule.arrival.forEach((flight) => {
+                        this.schedule.arrival.forEach(flight => {
                             if (flight.thread.number.replace(/\s/g, '').toLowerCase().indexOf(query) !== -1) {
                                 results.push(flight);
                             }
@@ -173,7 +164,7 @@ export default class Schedule {
         return Promise.all([depSearch, arrSearch]);
     }
 
-    downloadSchedule(event) {
+    static downloadSchedule(event) {
         const url = `/api?event=${event}`;
 
         return fetch(url, {

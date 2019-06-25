@@ -1,15 +1,16 @@
-import DepartureView from './views/DepartureView.js';
-import ArrivalView from './views/ArrivalView.js';
-import SearchView from './views/SearchView.js';
-import DelaysView from './views/DelaysView.js';
-import Router from './modules/Router.js';
+import Mustache from 'mustache';
+import DepartureView from './views/DepartureView';
+import ArrivalView from './views/ArrivalView';
+import SearchView from './views/SearchView';
+import DelaysView from './views/DelaysView';
+import Router from './modules/Router';
 import baseTemplate from './templates/base.mustache';
 import searchTemplate from './templates/search.mustache';
 import clockTemplate from './templates/clock.mustache';
-import Mustache from 'mustache';
-import startClock from './modules/Clock.js';
+import startClock from './modules/Clock';
 import '../css/main.css';
 
+// eslint-disable-next-line no-console
 if (window.location.hostname !== 'localhost') console.log = () => { };
 
 const root = document.getElementById('root');
@@ -20,7 +21,7 @@ navSection.dataset.sectionName = 'nav';
 const div = document.createElement('div');
 div.innerHTML = Mustache.render(baseTemplate, {}, {
     search: searchTemplate,
-    clock: clockTemplate
+    clock: clockTemplate,
 });
 
 navSection.appendChild(div.firstChild);
@@ -37,7 +38,7 @@ window.router
 window.router.start();
 
 const searchButton = document.getElementsByClassName('search__button')[0];
-searchButton.addEventListener('click', (event) => {
+searchButton.addEventListener('click', event => {
     event.preventDefault();
     const searchInput = document.getElementsByClassName('search__input')[0];
     const searchQuery = searchInput.value;

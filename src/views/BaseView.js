@@ -19,6 +19,7 @@ export default class BaseView {
         this.el.hidden = false;
     }
 
+    // eslint-disable-next-line class-methods-use-this
     render() {
         throw new Error('This method must be impemented!');
     }
