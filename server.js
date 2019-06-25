@@ -59,7 +59,7 @@ app.use('/api',  (request, response) => {
     });
 });
 
-app.use(fallback('dist/index.html', { root: rootDir }));
+app.use(fallback('src/index.html', { root: rootDir }));
 
 app.listen(3000, () => {
     console.log(`Listening http://localhost:3000`);
