@@ -44,7 +44,7 @@ export default class Router {
             );
         }
 
-        const View = route;
+        const { View } = route;
         let { view, el } = route;
 
         if (!el) {
@@ -57,9 +57,9 @@ export default class Router {
         }
 
         if (!view.active) {
-            Object.values(this.routes).forEach(({ _view }) => {
-                if (_view && _view.active) {
-                    _view.hide();
+            Object.values(this.routes).forEach(({ view }) => {
+                if (view && view.active) {
+                    view.hide();
                 }
             });
         }

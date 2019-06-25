@@ -1,10 +1,1575 @@
-!function(e){var t={};function n(r){if(t[r])return t[r].exports;var s=t[r]={i:r,l:!1,exports:{}};return e[r].call(s.exports,s,s.exports,n),s.l=!0,s.exports}n.m=e,n.c=t,n.d=function(e,t,r){n.o(e,t)||Object.defineProperty(e,t,{enumerable:!0,get:r})},n.r=function(e){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(e,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(e,"__esModule",{value:!0})},n.t=function(e,t){if(1&t&&(e=n(e)),8&t)return e;if(4&t&&"object"==typeof e&&e&&e.__esModule)return e;var r=Object.create(null);if(n.r(r),Object.defineProperty(r,"default",{enumerable:!0,value:e}),2&t&&"string"!=typeof e)for(var s in e)n.d(r,s,function(t){return e[t]}.bind(null,s));return r},n.n=function(e){var t=e&&e.__esModule?function(){return e.default}:function(){return e};return n.d(t,"a",t),t},n.o=function(e,t){return Object.prototype.hasOwnProperty.call(e,t)},n.p="",n(n.s=6)}([function(e,t,n){var r,s,i,o;
-/*!
+/******/ (function(modules) { // webpackBootstrap
+/******/ 	// The module cache
+/******/ 	var installedModules = {};
+/******/
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/
+/******/ 		// Check if module is in cache
+/******/ 		if(installedModules[moduleId]) {
+/******/ 			return installedModules[moduleId].exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = installedModules[moduleId] = {
+/******/ 			i: moduleId,
+/******/ 			l: false,
+/******/ 			exports: {}
+/******/ 		};
+/******/
+/******/ 		// Execute the module function
+/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+/******/
+/******/ 		// Flag the module as loaded
+/******/ 		module.l = true;
+/******/
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/
+/******/
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = modules;
+/******/
+/******/ 	// expose the module cache
+/******/ 	__webpack_require__.c = installedModules;
+/******/
+/******/ 	// define getter function for harmony exports
+/******/ 	__webpack_require__.d = function(exports, name, getter) {
+/******/ 		if(!__webpack_require__.o(exports, name)) {
+/******/ 			Object.defineProperty(exports, name, { enumerable: true, get: getter });
+/******/ 		}
+/******/ 	};
+/******/
+/******/ 	// define __esModule on exports
+/******/ 	__webpack_require__.r = function(exports) {
+/******/ 		if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 			Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 		}
+/******/ 		Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 	};
+/******/
+/******/ 	// create a fake namespace object
+/******/ 	// mode & 1: value is a module id, require it
+/******/ 	// mode & 2: merge all properties of value into the ns
+/******/ 	// mode & 4: return value when already ns object
+/******/ 	// mode & 8|1: behave like require
+/******/ 	__webpack_require__.t = function(value, mode) {
+/******/ 		if(mode & 1) value = __webpack_require__(value);
+/******/ 		if(mode & 8) return value;
+/******/ 		if((mode & 4) && typeof value === 'object' && value && value.__esModule) return value;
+/******/ 		var ns = Object.create(null);
+/******/ 		__webpack_require__.r(ns);
+/******/ 		Object.defineProperty(ns, 'default', { enumerable: true, value: value });
+/******/ 		if(mode & 2 && typeof value != 'string') for(var key in value) __webpack_require__.d(ns, key, function(key) { return value[key]; }.bind(null, key));
+/******/ 		return ns;
+/******/ 	};
+/******/
+/******/ 	// getDefaultExport function for compatibility with non-harmony modules
+/******/ 	__webpack_require__.n = function(module) {
+/******/ 		var getter = module && module.__esModule ?
+/******/ 			function getDefault() { return module['default']; } :
+/******/ 			function getModuleExports() { return module; };
+/******/ 		__webpack_require__.d(getter, 'a', getter);
+/******/ 		return getter;
+/******/ 	};
+/******/
+/******/ 	// Object.prototype.hasOwnProperty.call
+/******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
+/******/
+/******/ 	// __webpack_public_path__
+/******/ 	__webpack_require__.p = "";
+/******/
+/******/
+/******/ 	// Load entry module and return exports
+/******/ 	return __webpack_require__(__webpack_require__.s = "./src/index.js");
+/******/ })
+/************************************************************************/
+/******/ ({
+
+/***/ "./css/main.css":
+/*!**********************!*\
+  !*** ./css/main.css ***!
+  \**********************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+// extracted by mini-css-extract-plugin
+
+/***/ }),
+
+/***/ "./node_modules/mustache/mustache.js":
+/*!*******************************************!*\
+  !*** ./node_modules/mustache/mustache.js ***!
+  \*******************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
  * mustache.js - Logic-less {{mustache}} templates with JavaScript
  * http://github.com/janl/mustache.js
  */
-/*!
- * mustache.js - Logic-less {{mustache}} templates with JavaScript
- * http://github.com/janl/mustache.js
- */
-o=function(e){var t=Object.prototype.toString,n=Array.isArray||function(e){return"[object Array]"===t.call(e)};function r(e){return"function"==typeof e}function s(e){return e.replace(/[\-\[\]{}()*+?.,\\\^$|#\s]/g,"\\$&")}function i(e,t){return null!=e&&"object"==typeof e&&t in e}var o=RegExp.prototype.test,a=/\S/;function c(e){return!function(e,t){return o.call(e,t)}(a,e)}var l={"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;","/":"&#x2F;","`":"&#x60;","=":"&#x3D;"},h=/\s*/,u=/\s+/,d=/\s*=/,p=/\s*\}/,f=/#|\^|\/|>|\{|&|=|!/;function v(e){this.string=e,this.tail=e,this.pos=0}function m(e,t){this.view=e,this.cache={".":this.view},this.parent=t}function g(){this.cache={}}v.prototype.eos=function(){return""===this.tail},v.prototype.scan=function(e){var t=this.tail.match(e);if(!t||0!==t.index)return"";var n=t[0];return this.tail=this.tail.substring(n.length),this.pos+=n.length,n},v.prototype.scanUntil=function(e){var t,n=this.tail.search(e);switch(n){case-1:t=this.tail,this.tail="";break;case 0:t="";break;default:t=this.tail.substring(0,n),this.tail=this.tail.substring(n)}return this.pos+=t.length,t},m.prototype.push=function(e){return new m(e,this)},m.prototype.lookup=function(e){var t,n,s,o=this.cache;if(o.hasOwnProperty(e))t=o[e];else{for(var a,c,l,h=this,u=!1;h;){if(e.indexOf(".")>0)for(a=h.view,c=e.split("."),l=0;null!=a&&l<c.length;)l===c.length-1&&(u=i(a,c[l])||(n=a,s=c[l],null!=n&&"object"!=typeof n&&n.hasOwnProperty&&n.hasOwnProperty(s))),a=a[c[l++]];else a=h.view[e],u=i(h.view,e);if(u){t=a;break}h=h.parent}o[e]=t}return r(t)&&(t=t.call(this.view)),t},g.prototype.clearCache=function(){this.cache={}},g.prototype.parse=function(t,r){var i=this.cache,o=t+":"+(r||e.tags).join(":"),a=i[o];return null==a&&(a=i[o]=function(t,r){if(!t)return[];var i,o,a,l=[],m=[],g=[],w=!1,y=!1;function b(){if(w&&!y)for(;g.length;)delete m[g.pop()];else g=[];w=!1,y=!1}function E(e){if("string"==typeof e&&(e=e.split(u,2)),!n(e)||2!==e.length)throw new Error("Invalid tags: "+e);i=new RegExp(s(e[0])+"\\s*"),o=new RegExp("\\s*"+s(e[1])),a=new RegExp("\\s*"+s("}"+e[1]))}E(r||e.tags);for(var C,T,L,M,x,_,S=new v(t);!S.eos();){if(C=S.pos,L=S.scanUntil(i))for(var k=0,H=L.length;k<H;++k)c(M=L.charAt(k))?g.push(m.length):y=!0,m.push(["text",M,C,C+1]),C+=1,"\n"===M&&b();if(!S.scan(i))break;if(w=!0,T=S.scan(f)||"name",S.scan(h),"="===T?(L=S.scanUntil(d),S.scan(d),S.scanUntil(o)):"{"===T?(L=S.scanUntil(a),S.scan(p),S.scanUntil(o),T="&"):L=S.scanUntil(o),!S.scan(o))throw new Error("Unclosed tag at "+S.pos);if(x=[T,L,C,S.pos],m.push(x),"#"===T||"^"===T)l.push(x);else if("/"===T){if(!(_=l.pop()))throw new Error('Unopened section "'+L+'" at '+C);if(_[1]!==L)throw new Error('Unclosed section "'+_[1]+'" at '+C)}else"name"===T||"{"===T||"&"===T?y=!0:"="===T&&E(L)}if(_=l.pop())throw new Error('Unclosed section "'+_[1]+'" at '+S.pos);return function(e){for(var t,n=[],r=n,s=[],i=0,o=e.length;i<o;++i)switch((t=e[i])[0]){case"#":case"^":r.push(t),s.push(t),r=t[4]=[];break;case"/":s.pop()[5]=t[2],r=s.length>0?s[s.length-1][4]:n;break;default:r.push(t)}return n}(function(e){for(var t,n,r=[],s=0,i=e.length;s<i;++s)(t=e[s])&&("text"===t[0]&&n&&"text"===n[0]?(n[1]+=t[1],n[3]=t[3]):(r.push(t),n=t));return r}(m))}(t,r)),a},g.prototype.render=function(e,t,n,r){var s=this.parse(e,r),i=t instanceof m?t:new m(t);return this.renderTokens(s,i,n,e,r)},g.prototype.renderTokens=function(e,t,n,r,s){for(var i,o,a,c="",l=0,h=e.length;l<h;++l)a=void 0,"#"===(o=(i=e[l])[0])?a=this.renderSection(i,t,n,r):"^"===o?a=this.renderInverted(i,t,n,r):">"===o?a=this.renderPartial(i,t,n,s):"&"===o?a=this.unescapedValue(i,t):"name"===o?a=this.escapedValue(i,t):"text"===o&&(a=this.rawValue(i)),void 0!==a&&(c+=a);return c},g.prototype.renderSection=function(e,t,s,i){var o=this,a="",c=t.lookup(e[1]);if(c){if(n(c))for(var l=0,h=c.length;l<h;++l)a+=this.renderTokens(e[4],t.push(c[l]),s,i);else if("object"==typeof c||"string"==typeof c||"number"==typeof c)a+=this.renderTokens(e[4],t.push(c),s,i);else if(r(c)){if("string"!=typeof i)throw new Error("Cannot use higher-order sections without the original template");null!=(c=c.call(t.view,i.slice(e[3],e[5]),function(e){return o.render(e,t,s)}))&&(a+=c)}else a+=this.renderTokens(e[4],t,s,i);return a}},g.prototype.renderInverted=function(e,t,r,s){var i=t.lookup(e[1]);if(!i||n(i)&&0===i.length)return this.renderTokens(e[4],t,r,s)},g.prototype.renderPartial=function(e,t,n,s){if(n){var i=r(n)?n(e[1]):n[e[1]];return null!=i?this.renderTokens(this.parse(i,s),t,n,i):void 0}},g.prototype.unescapedValue=function(e,t){var n=t.lookup(e[1]);if(null!=n)return n},g.prototype.escapedValue=function(t,n){var r=n.lookup(t[1]);if(null!=r)return e.escape(r)},g.prototype.rawValue=function(e){return e[1]},e.name="mustache.js",e.version="3.0.1",e.tags=["{{","}}"];var w=new g;return e.clearCache=function(){return w.clearCache()},e.parse=function(e,t){return w.parse(e,t)},e.render=function(e,t,r,s){if("string"!=typeof e)throw new TypeError('Invalid template! Template should be a "string" but "'+(n(i=e)?"array":typeof i)+'" was given as the first argument for mustache#render(template, view, partials)');var i;return w.render(e,t,r,s)},e.to_html=function(t,n,s,i){var o=e.render(t,n,s);if(!r(i))return o;i(o)},e.escape=function(e){return String(e).replace(/[&<>"'`=\/]/g,function(e){return l[e]})},e.Scanner=v,e.Context=m,e.Writer=g,e},t&&"string"!=typeof t.nodeName?o(t):(s=[t],void 0===(i="function"==typeof(r=o)?r.apply(t,s):r)||(e.exports=i))},function(e,t){e.exports='<div class="container">\n    <table border="1">\n        <tr>\n            <th>Время</th>\n            <th>Направление</th>\n            <th>Номер рейса</th>\n        </tr>\n        {{#flights}}\n        <tr>\n            <th>{{#departure}}{{formatDate}}{{/departure}}{{#arrival}}{{formatDate}}{{/arrival}}</th>\n            <th>{{thread.short_title}}</th>\n            <th>{{thread.number}}</th>\n        </tr>\n        {{/flights}}\n    </table>\n</div>'},function(e,t){e.exports='<div class="nav">\n    {{> clock }}\n    <div class="search">\n        {{> search }}\n    </div>\n    <div class="container">\n        <h1><a href="/arrival">Прилет</a></h1>\n        <h1><a href="/departure">Вылет</a></h1>\n        <h1><a href="/delays">Задержки</a></h1>\n    </div>\n</div>'},function(e,t){e.exports='<form class="search__form">\n    <input class="search__input" type="text" placeholder="Поиск по номеру рейса">\n    <button class="search__button">Поиск</button>\n</form> '},function(e,t){e.exports='<div class="container">\n    <div class="clock__timer" id="clock">\n    </div>\n</div>'},function(e,t,n){},function(e,t,n){"use strict";n.r(t);class r{constructor(e){this.el=e,this.el.dataset.view=this.constructor.name,this.el.hidden=!0}get active(){return!this.el.hidden}hide(){this.el.hidden=!0}show(e){this.render(e),this.el.hidden=!1}render(){throw new Error("This method must be impemented!")}}class s{constructor(){if(s.__instance)return s.__instance;this.schedule={departure:null,arrival:null},s.__instance=this}getSchedule(e){return this.schedule[e]?(console.log("Schedule from cache."),Promise.resolve(this.schedule[e])):(console.log("Performing api request."),this.downloadSchedule(e).then(e=>e.json()).then(t=>(this.schedule[e]=t.schedule,this.schedule[e])).catch(e=>{console.log(e)}))}getDelays(){let e=new Promise((e,t)=>{const n=[],r=new Date;this.schedule.departure?(this.schedule.departure.forEach(e=>{const t=new Date(e.departure),s=1===Math.floor(2*Math.random());r-t>0&&s&&n.push(e)}),e(n)):this.downloadSchedule("departure").then(e=>e.json()).then(t=>{this.schedule.departure=t.schedule,this.schedule.departure.forEach(e=>{const t=new Date(e.departure),s=1===Math.floor(2*Math.random());r-t>0&&s&&n.push(e)}),e(n)}).catch(e=>{console.log(e)})}),t=new Promise((e,t)=>{const n=[],r=new Date;this.schedule.arrival?(this.schedule.arrival.forEach(e=>{const t=new Date(e.departure),s=1===Math.floor(2*Math.random());r-t>0&&s&&n.push(e)}),e(n)):this.downloadSchedule("arrival").then(e=>e.json()).then(t=>{this.schedule.arrival=t.schedule,this.schedule.arrival.forEach(e=>{const t=new Date(e.departure),s=1===Math.floor(2*Math.random());r-t>0&&s&&n.push(e)}),e(n)}).catch(e=>{console.log(e)})});return Promise.all([e,t])}search(e){e=e.replace(/\s/g,"").toLowerCase();let t=new Promise((t,n)=>{const r=[];this.schedule.departure?(this.schedule.departure.forEach(t=>{-1!==t.thread.number.replace(/\s/g,"").toLowerCase().indexOf(e)&&r.push(t)}),t(r)):this.downloadSchedule("departure").then(e=>e.json()).then(n=>{this.schedule.departure=n.schedule,this.schedule.departure.forEach(t=>{-1!==t.thread.number.replace(/\s/g,"").toLowerCase().indexOf(e)&&r.push(t)}),t(r)}).catch(e=>{console.log(e)})}),n=new Promise((t,n)=>{const r=[];this.schedule.arrival?(this.schedule.arrival.forEach(t=>{-1!==t.thread.number.replace(/\s/g,"").toLowerCase().indexOf(e)&&r.push(t)}),t(r)):this.downloadSchedule("arrival").then(e=>e.json()).then(n=>{this.schedule.arrival=n.schedule,this.schedule.arrival.forEach(t=>{-1!==t.thread.number.replace(/\s/g,"").toLowerCase().indexOf(e)&&r.push(t)}),t(r)}).catch(e=>{console.log(e)})});return Promise.all([t,n])}downloadSchedule(e){return fetch(`/api?event=${e}`,{method:"GET"})}}var i=n(0),o=n.n(i),a=n(1),c=n.n(a);class l extends r{constructor(e){super(e)}render(){this.el.innerHTML="";const e=document.createElement("section");e.dataset.sectionName="departure";const t=document.createElement("div");t.innerHTML='<div class="message">Загрузка</div>',e.appendChild(t.firstChild),this.el.appendChild(e),(new s).getSchedule("departure").then(t=>{const n={flights:t,formatDate:function(){return new Date(this).toLocaleString("ru")}},r=document.createElement("div");r.innerHTML=o.a.render(c.a,n),e.innerHTML="",e.appendChild(r.firstChild),this.el.appendChild(e)}).catch(e=>{console.log(e)}),o.a.parse(c.a)}}class h{constructor(e){if(h.__instance)return h.__instance;this.routes={},this.root=e,h.__instance=this}register(e,t){return this.routes[e]={View:t,view:null,el:null},this}open(e,t){const n=this.routes[e];if(!n)return void this.open("/");if(null===n.View)return void this.open("/");window.location.pathname!==e&&window.history.pushState(null,"",e);let{View:r,view:s,el:i}=n;i||(i=document.createElement("section"),this.root.appendChild(i)),s||(s=new r(i)),s.active||Object.values(this.routes).forEach(({view:e})=>{e&&e.active&&e.hide()}),s.show(t),this.routes[e]={View:r,view:s,el:i}}start(){this.root.addEventListener("click",function(e){if(!(e.target instanceof HTMLAnchorElement))return;e.preventDefault();const t=e.target;console.log({pathname:t.pathname}),this.open(t.pathname)}.bind(this)),window.addEventListener("popstate",function(){const e=window.location.pathname;this.open(e)}.bind(this));const e=window.location.pathname;this.open(e)}}var u=n(2),d=n.n(u),p=n(3),f=n.n(p),v=n(4),m=n.n(v);function g(e){return e<10&&(e="0"+e),e}n(5);"localhost"!==window.location.hostname&&(console.log=(()=>{}));const w=document.getElementById("root"),y=document.createElement("section");y.dataset.sectionName="nav";const b=document.createElement("div");b.innerHTML=o.a.render(d.a,{},{search:f.a,clock:m.a}),y.appendChild(b.firstChild),w.appendChild(y),window.router=new h(w),window.router.register("/",l).register("/departure",l).register("/arrival",class extends r{constructor(e){super(e)}render(){this.el.innerHTML="";const e=document.createElement("section");e.dataset.sectionName="arrival";const t=document.createElement("div");t.innerHTML='<div class="message">Загрузка</div>',e.appendChild(t.firstChild),this.el.appendChild(e),(new s).getSchedule("arrival").then(t=>{const n={flights:t,formatDate:function(){return new Date(this).toLocaleString("ru")}},r=document.createElement("div");r.innerHTML=o.a.render(c.a,n),e.innerHTML="",e.appendChild(r.firstChild),this.el.appendChild(e)}).catch(e=>{console.log(e)}),o.a.parse(c.a)}}).register("/delays",class extends r{constructor(e){super(e)}render(){this.el.innerHTML="";const e=document.createElement("section");e.dataset.sectionName="delays";const t=document.createElement("div");t.innerHTML='<div class="message">Загрузка</div>',e.appendChild(t.firstChild),this.el.appendChild(e),(new s).getDelays().then(t=>{const n={flights:t=t[0].concat(t[1]),formatDate:function(){return new Date(this).toLocaleString("ru")}},r=document.createElement("div");r.innerHTML=o.a.render(c.a,n),e.innerHTML="",e.appendChild(r.firstChild),this.el.appendChild(e)}).catch(e=>{console.log(e)}),o.a.parse(c.a)}}).register("/search",class extends r{constructor(e){super(e)}render(e){this.el.innerHTML="";const t=document.createElement("section");t.dataset.sectionName="search";const n=document.createElement("div");if(n.innerHTML='<div class="message">Выполняется поиск</div>',t.appendChild(n.firstChild),this.el.appendChild(t),!e){const t=new URLSearchParams(window.location.href.split("?")[1]);e=t.get("search")}const r=new s;e?r.search(e).then(n=>{if((n=n[0].concat(n[1])).length>0){const r={flights:n,formatDate:function(){return new Date(this).toLocaleString("ru")}},s=document.createElement("div");s.innerHTML=o.a.render(c.a,r),t.innerHTML=`<div class="message">Результаты поиска по запросу &nbsp<b>${e}</b>:</div>`,t.appendChild(s.firstChild),this.el.appendChild(t)}else this.noEntriesFound(t,e)}).catch(e=>{console.log(e)}):this.noEntriesFound(t,e),o.a.parse(c.a)}noEntriesFound(e,t){const n=document.createElement("div");/^\s+$/.test(t)||!t?n.innerHTML='<div class="message">Пустой поисковый запрос</div>':n.innerHTML=`<div class="message">По запросу &nbsp<b>${t}</b>&nbsp ничего не нашлось</div>`,e.innerHTML="",e.appendChild(n.firstChild),this.el.appendChild(e)}hide(){super.hide(),this.el.innerHTML=""}}),window.router.start(),document.getElementsByClassName("search__button")[0].addEventListener("click",e=>{e.preventDefault();const t=document.getElementsByClassName("search__input")[0],n=t.value;t.value="",window.router.open("/search",n)}),function e(t){const n=new Date;let r=n.getHours(),s=n.getMinutes(),i=n.getSeconds();s=g(s),i=g(i),document.getElementById(t).innerHTML=`${r}:${s}:${i}`,setTimeout(()=>{e(t)},500)}("clock")}]);
+
+/*global define: false Mustache: true*/
+
+(function defineMustache (global, factory) {
+  if ( true && exports && typeof exports.nodeName !== 'string') {
+    factory(exports); // CommonJS
+  } else if (true) {
+    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [exports], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__)); // AMD
+  } else {}
+}(this, function mustacheFactory (mustache) {
+
+  var objectToString = Object.prototype.toString;
+  var isArray = Array.isArray || function isArrayPolyfill (object) {
+    return objectToString.call(object) === '[object Array]';
+  };
+
+  function isFunction (object) {
+    return typeof object === 'function';
+  }
+
+  /**
+   * More correct typeof string handling array
+   * which normally returns typeof 'object'
+   */
+  function typeStr (obj) {
+    return isArray(obj) ? 'array' : typeof obj;
+  }
+
+  function escapeRegExp (string) {
+    return string.replace(/[\-\[\]{}()*+?.,\\\^$|#\s]/g, '\\$&');
+  }
+
+  /**
+   * Null safe way of checking whether or not an object,
+   * including its prototype, has a given property
+   */
+  function hasProperty (obj, propName) {
+    return obj != null && typeof obj === 'object' && (propName in obj);
+  }
+
+  /**
+   * Safe way of detecting whether or not the given thing is a primitive and
+   * whether it has the given property
+   */
+  function primitiveHasOwnProperty (primitive, propName) {  
+    return (
+      primitive != null
+      && typeof primitive !== 'object'
+      && primitive.hasOwnProperty
+      && primitive.hasOwnProperty(propName)
+    );
+  }
+
+  // Workaround for https://issues.apache.org/jira/browse/COUCHDB-577
+  // See https://github.com/janl/mustache.js/issues/189
+  var regExpTest = RegExp.prototype.test;
+  function testRegExp (re, string) {
+    return regExpTest.call(re, string);
+  }
+
+  var nonSpaceRe = /\S/;
+  function isWhitespace (string) {
+    return !testRegExp(nonSpaceRe, string);
+  }
+
+  var entityMap = {
+    '&': '&amp;',
+    '<': '&lt;',
+    '>': '&gt;',
+    '"': '&quot;',
+    "'": '&#39;',
+    '/': '&#x2F;',
+    '`': '&#x60;',
+    '=': '&#x3D;'
+  };
+
+  function escapeHtml (string) {
+    return String(string).replace(/[&<>"'`=\/]/g, function fromEntityMap (s) {
+      return entityMap[s];
+    });
+  }
+
+  var whiteRe = /\s*/;
+  var spaceRe = /\s+/;
+  var equalsRe = /\s*=/;
+  var curlyRe = /\s*\}/;
+  var tagRe = /#|\^|\/|>|\{|&|=|!/;
+
+  /**
+   * Breaks up the given `template` string into a tree of tokens. If the `tags`
+   * argument is given here it must be an array with two string values: the
+   * opening and closing tags used in the template (e.g. [ "<%", "%>" ]). Of
+   * course, the default is to use mustaches (i.e. mustache.tags).
+   *
+   * A token is an array with at least 4 elements. The first element is the
+   * mustache symbol that was used inside the tag, e.g. "#" or "&". If the tag
+   * did not contain a symbol (i.e. {{myValue}}) this element is "name". For
+   * all text that appears outside a symbol this element is "text".
+   *
+   * The second element of a token is its "value". For mustache tags this is
+   * whatever else was inside the tag besides the opening symbol. For text tokens
+   * this is the text itself.
+   *
+   * The third and fourth elements of the token are the start and end indices,
+   * respectively, of the token in the original template.
+   *
+   * Tokens that are the root node of a subtree contain two more elements: 1) an
+   * array of tokens in the subtree and 2) the index in the original template at
+   * which the closing tag for that section begins.
+   */
+  function parseTemplate (template, tags) {
+    if (!template)
+      return [];
+
+    var sections = [];     // Stack to hold section tokens
+    var tokens = [];       // Buffer to hold the tokens
+    var spaces = [];       // Indices of whitespace tokens on the current line
+    var hasTag = false;    // Is there a {{tag}} on the current line?
+    var nonSpace = false;  // Is there a non-space char on the current line?
+
+    // Strips all whitespace tokens array for the current line
+    // if there was a {{#tag}} on it and otherwise only space.
+    function stripSpace () {
+      if (hasTag && !nonSpace) {
+        while (spaces.length)
+          delete tokens[spaces.pop()];
+      } else {
+        spaces = [];
+      }
+
+      hasTag = false;
+      nonSpace = false;
+    }
+
+    var openingTagRe, closingTagRe, closingCurlyRe;
+    function compileTags (tagsToCompile) {
+      if (typeof tagsToCompile === 'string')
+        tagsToCompile = tagsToCompile.split(spaceRe, 2);
+
+      if (!isArray(tagsToCompile) || tagsToCompile.length !== 2)
+        throw new Error('Invalid tags: ' + tagsToCompile);
+
+      openingTagRe = new RegExp(escapeRegExp(tagsToCompile[0]) + '\\s*');
+      closingTagRe = new RegExp('\\s*' + escapeRegExp(tagsToCompile[1]));
+      closingCurlyRe = new RegExp('\\s*' + escapeRegExp('}' + tagsToCompile[1]));
+    }
+
+    compileTags(tags || mustache.tags);
+
+    var scanner = new Scanner(template);
+
+    var start, type, value, chr, token, openSection;
+    while (!scanner.eos()) {
+      start = scanner.pos;
+
+      // Match any text between tags.
+      value = scanner.scanUntil(openingTagRe);
+
+      if (value) {
+        for (var i = 0, valueLength = value.length; i < valueLength; ++i) {
+          chr = value.charAt(i);
+
+          if (isWhitespace(chr)) {
+            spaces.push(tokens.length);
+          } else {
+            nonSpace = true;
+          }
+
+          tokens.push([ 'text', chr, start, start + 1 ]);
+          start += 1;
+
+          // Check for whitespace on the current line.
+          if (chr === '\n')
+            stripSpace();
+        }
+      }
+
+      // Match the opening tag.
+      if (!scanner.scan(openingTagRe))
+        break;
+
+      hasTag = true;
+
+      // Get the tag type.
+      type = scanner.scan(tagRe) || 'name';
+      scanner.scan(whiteRe);
+
+      // Get the tag value.
+      if (type === '=') {
+        value = scanner.scanUntil(equalsRe);
+        scanner.scan(equalsRe);
+        scanner.scanUntil(closingTagRe);
+      } else if (type === '{') {
+        value = scanner.scanUntil(closingCurlyRe);
+        scanner.scan(curlyRe);
+        scanner.scanUntil(closingTagRe);
+        type = '&';
+      } else {
+        value = scanner.scanUntil(closingTagRe);
+      }
+
+      // Match the closing tag.
+      if (!scanner.scan(closingTagRe))
+        throw new Error('Unclosed tag at ' + scanner.pos);
+
+      token = [ type, value, start, scanner.pos ];
+      tokens.push(token);
+
+      if (type === '#' || type === '^') {
+        sections.push(token);
+      } else if (type === '/') {
+        // Check section nesting.
+        openSection = sections.pop();
+
+        if (!openSection)
+          throw new Error('Unopened section "' + value + '" at ' + start);
+
+        if (openSection[1] !== value)
+          throw new Error('Unclosed section "' + openSection[1] + '" at ' + start);
+      } else if (type === 'name' || type === '{' || type === '&') {
+        nonSpace = true;
+      } else if (type === '=') {
+        // Set the tags for the next time around.
+        compileTags(value);
+      }
+    }
+
+    // Make sure there are no open sections when we're done.
+    openSection = sections.pop();
+
+    if (openSection)
+      throw new Error('Unclosed section "' + openSection[1] + '" at ' + scanner.pos);
+
+    return nestTokens(squashTokens(tokens));
+  }
+
+  /**
+   * Combines the values of consecutive text tokens in the given `tokens` array
+   * to a single token.
+   */
+  function squashTokens (tokens) {
+    var squashedTokens = [];
+
+    var token, lastToken;
+    for (var i = 0, numTokens = tokens.length; i < numTokens; ++i) {
+      token = tokens[i];
+
+      if (token) {
+        if (token[0] === 'text' && lastToken && lastToken[0] === 'text') {
+          lastToken[1] += token[1];
+          lastToken[3] = token[3];
+        } else {
+          squashedTokens.push(token);
+          lastToken = token;
+        }
+      }
+    }
+
+    return squashedTokens;
+  }
+
+  /**
+   * Forms the given array of `tokens` into a nested tree structure where
+   * tokens that represent a section have two additional items: 1) an array of
+   * all tokens that appear in that section and 2) the index in the original
+   * template that represents the end of that section.
+   */
+  function nestTokens (tokens) {
+    var nestedTokens = [];
+    var collector = nestedTokens;
+    var sections = [];
+
+    var token, section;
+    for (var i = 0, numTokens = tokens.length; i < numTokens; ++i) {
+      token = tokens[i];
+
+      switch (token[0]) {
+        case '#':
+        case '^':
+          collector.push(token);
+          sections.push(token);
+          collector = token[4] = [];
+          break;
+        case '/':
+          section = sections.pop();
+          section[5] = token[2];
+          collector = sections.length > 0 ? sections[sections.length - 1][4] : nestedTokens;
+          break;
+        default:
+          collector.push(token);
+      }
+    }
+
+    return nestedTokens;
+  }
+
+  /**
+   * A simple string scanner that is used by the template parser to find
+   * tokens in template strings.
+   */
+  function Scanner (string) {
+    this.string = string;
+    this.tail = string;
+    this.pos = 0;
+  }
+
+  /**
+   * Returns `true` if the tail is empty (end of string).
+   */
+  Scanner.prototype.eos = function eos () {
+    return this.tail === '';
+  };
+
+  /**
+   * Tries to match the given regular expression at the current position.
+   * Returns the matched text if it can match, the empty string otherwise.
+   */
+  Scanner.prototype.scan = function scan (re) {
+    var match = this.tail.match(re);
+
+    if (!match || match.index !== 0)
+      return '';
+
+    var string = match[0];
+
+    this.tail = this.tail.substring(string.length);
+    this.pos += string.length;
+
+    return string;
+  };
+
+  /**
+   * Skips all text until the given regular expression can be matched. Returns
+   * the skipped string, which is the entire tail if no match can be made.
+   */
+  Scanner.prototype.scanUntil = function scanUntil (re) {
+    var index = this.tail.search(re), match;
+
+    switch (index) {
+      case -1:
+        match = this.tail;
+        this.tail = '';
+        break;
+      case 0:
+        match = '';
+        break;
+      default:
+        match = this.tail.substring(0, index);
+        this.tail = this.tail.substring(index);
+    }
+
+    this.pos += match.length;
+
+    return match;
+  };
+
+  /**
+   * Represents a rendering context by wrapping a view object and
+   * maintaining a reference to the parent context.
+   */
+  function Context (view, parentContext) {
+    this.view = view;
+    this.cache = { '.': this.view };
+    this.parent = parentContext;
+  }
+
+  /**
+   * Creates a new context using the given view with this context
+   * as the parent.
+   */
+  Context.prototype.push = function push (view) {
+    return new Context(view, this);
+  };
+
+  /**
+   * Returns the value of the given name in this context, traversing
+   * up the context hierarchy if the value is absent in this context's view.
+   */
+  Context.prototype.lookup = function lookup (name) {
+    var cache = this.cache;
+
+    var value;
+    if (cache.hasOwnProperty(name)) {
+      value = cache[name];
+    } else {
+      var context = this, intermediateValue, names, index, lookupHit = false;
+
+      while (context) {
+        if (name.indexOf('.') > 0) {
+          intermediateValue = context.view;
+          names = name.split('.');
+          index = 0;
+
+          /**
+           * Using the dot notion path in `name`, we descend through the
+           * nested objects.
+           *
+           * To be certain that the lookup has been successful, we have to
+           * check if the last object in the path actually has the property
+           * we are looking for. We store the result in `lookupHit`.
+           *
+           * This is specially necessary for when the value has been set to
+           * `undefined` and we want to avoid looking up parent contexts.
+           *
+           * In the case where dot notation is used, we consider the lookup
+           * to be successful even if the last "object" in the path is
+           * not actually an object but a primitive (e.g., a string, or an
+           * integer), because it is sometimes useful to access a property
+           * of an autoboxed primitive, such as the length of a string.
+           **/
+          while (intermediateValue != null && index < names.length) {
+            if (index === names.length - 1)
+              lookupHit = (
+                hasProperty(intermediateValue, names[index]) 
+                || primitiveHasOwnProperty(intermediateValue, names[index])
+              );
+
+            intermediateValue = intermediateValue[names[index++]];
+          }
+        } else {
+          intermediateValue = context.view[name];
+
+          /**
+           * Only checking against `hasProperty`, which always returns `false` if
+           * `context.view` is not an object. Deliberately omitting the check
+           * against `primitiveHasOwnProperty` if dot notation is not used.
+           *
+           * Consider this example:
+           * ```
+           * Mustache.render("The length of a football field is {{#length}}{{length}}{{/length}}.", {length: "100 yards"})
+           * ```
+           *
+           * If we were to check also against `primitiveHasOwnProperty`, as we do
+           * in the dot notation case, then render call would return:
+           *
+           * "The length of a football field is 9."
+           *
+           * rather than the expected:
+           *
+           * "The length of a football field is 100 yards."
+           **/
+          lookupHit = hasProperty(context.view, name);
+        }
+
+        if (lookupHit) {
+          value = intermediateValue;
+          break;
+        }
+
+        context = context.parent;
+      }
+
+      cache[name] = value;
+    }
+
+    if (isFunction(value))
+      value = value.call(this.view);
+
+    return value;
+  };
+
+  /**
+   * A Writer knows how to take a stream of tokens and render them to a
+   * string, given a context. It also maintains a cache of templates to
+   * avoid the need to parse the same template twice.
+   */
+  function Writer () {
+    this.cache = {};
+  }
+
+  /**
+   * Clears all cached templates in this writer.
+   */
+  Writer.prototype.clearCache = function clearCache () {
+    this.cache = {};
+  };
+
+  /**
+   * Parses and caches the given `template` according to the given `tags` or
+   * `mustache.tags` if `tags` is omitted,  and returns the array of tokens
+   * that is generated from the parse.
+   */
+  Writer.prototype.parse = function parse (template, tags) {
+    var cache = this.cache;
+    var cacheKey = template + ':' + (tags || mustache.tags).join(':');
+    var tokens = cache[cacheKey];
+
+    if (tokens == null)
+      tokens = cache[cacheKey] = parseTemplate(template, tags);
+
+    return tokens;
+  };
+
+  /**
+   * High-level method that is used to render the given `template` with
+   * the given `view`.
+   *
+   * The optional `partials` argument may be an object that contains the
+   * names and templates of partials that are used in the template. It may
+   * also be a function that is used to load partial templates on the fly
+   * that takes a single argument: the name of the partial.
+   *
+   * If the optional `tags` argument is given here it must be an array with two
+   * string values: the opening and closing tags used in the template (e.g.
+   * [ "<%", "%>" ]). The default is to mustache.tags.
+   */
+  Writer.prototype.render = function render (template, view, partials, tags) {
+    var tokens = this.parse(template, tags);
+    var context = (view instanceof Context) ? view : new Context(view);
+    return this.renderTokens(tokens, context, partials, template, tags);
+  };
+
+  /**
+   * Low-level method that renders the given array of `tokens` using
+   * the given `context` and `partials`.
+   *
+   * Note: The `originalTemplate` is only ever used to extract the portion
+   * of the original template that was contained in a higher-order section.
+   * If the template doesn't use higher-order sections, this argument may
+   * be omitted.
+   */
+  Writer.prototype.renderTokens = function renderTokens (tokens, context, partials, originalTemplate, tags) {
+    var buffer = '';
+
+    var token, symbol, value;
+    for (var i = 0, numTokens = tokens.length; i < numTokens; ++i) {
+      value = undefined;
+      token = tokens[i];
+      symbol = token[0];
+
+      if (symbol === '#') value = this.renderSection(token, context, partials, originalTemplate);
+      else if (symbol === '^') value = this.renderInverted(token, context, partials, originalTemplate);
+      else if (symbol === '>') value = this.renderPartial(token, context, partials, tags);
+      else if (symbol === '&') value = this.unescapedValue(token, context);
+      else if (symbol === 'name') value = this.escapedValue(token, context);
+      else if (symbol === 'text') value = this.rawValue(token);
+
+      if (value !== undefined)
+        buffer += value;
+    }
+
+    return buffer;
+  };
+
+  Writer.prototype.renderSection = function renderSection (token, context, partials, originalTemplate) {
+    var self = this;
+    var buffer = '';
+    var value = context.lookup(token[1]);
+
+    // This function is used to render an arbitrary template
+    // in the current context by higher-order sections.
+    function subRender (template) {
+      return self.render(template, context, partials);
+    }
+
+    if (!value) return;
+
+    if (isArray(value)) {
+      for (var j = 0, valueLength = value.length; j < valueLength; ++j) {
+        buffer += this.renderTokens(token[4], context.push(value[j]), partials, originalTemplate);
+      }
+    } else if (typeof value === 'object' || typeof value === 'string' || typeof value === 'number') {
+      buffer += this.renderTokens(token[4], context.push(value), partials, originalTemplate);
+    } else if (isFunction(value)) {
+      if (typeof originalTemplate !== 'string')
+        throw new Error('Cannot use higher-order sections without the original template');
+
+      // Extract the portion of the original template that the section contains.
+      value = value.call(context.view, originalTemplate.slice(token[3], token[5]), subRender);
+
+      if (value != null)
+        buffer += value;
+    } else {
+      buffer += this.renderTokens(token[4], context, partials, originalTemplate);
+    }
+    return buffer;
+  };
+
+  Writer.prototype.renderInverted = function renderInverted (token, context, partials, originalTemplate) {
+    var value = context.lookup(token[1]);
+
+    // Use JavaScript's definition of falsy. Include empty arrays.
+    // See https://github.com/janl/mustache.js/issues/186
+    if (!value || (isArray(value) && value.length === 0))
+      return this.renderTokens(token[4], context, partials, originalTemplate);
+  };
+
+  Writer.prototype.renderPartial = function renderPartial (token, context, partials, tags) {
+    if (!partials) return;
+
+    var value = isFunction(partials) ? partials(token[1]) : partials[token[1]];
+    if (value != null)
+      return this.renderTokens(this.parse(value, tags), context, partials, value);
+  };
+
+  Writer.prototype.unescapedValue = function unescapedValue (token, context) {
+    var value = context.lookup(token[1]);
+    if (value != null)
+      return value;
+  };
+
+  Writer.prototype.escapedValue = function escapedValue (token, context) {
+    var value = context.lookup(token[1]);
+    if (value != null)
+      return mustache.escape(value);
+  };
+
+  Writer.prototype.rawValue = function rawValue (token) {
+    return token[1];
+  };
+
+  mustache.name = 'mustache.js';
+  mustache.version = '3.0.1';
+  mustache.tags = [ '{{', '}}' ];
+
+  // All high-level mustache.* functions use this writer.
+  var defaultWriter = new Writer();
+
+  /**
+   * Clears all cached templates in the default writer.
+   */
+  mustache.clearCache = function clearCache () {
+    return defaultWriter.clearCache();
+  };
+
+  /**
+   * Parses and caches the given template in the default writer and returns the
+   * array of tokens it contains. Doing this ahead of time avoids the need to
+   * parse templates on the fly as they are rendered.
+   */
+  mustache.parse = function parse (template, tags) {
+    return defaultWriter.parse(template, tags);
+  };
+
+  /**
+   * Renders the `template` with the given `view` and `partials` using the
+   * default writer. If the optional `tags` argument is given here it must be an
+   * array with two string values: the opening and closing tags used in the
+   * template (e.g. [ "<%", "%>" ]). The default is to mustache.tags.
+   */
+  mustache.render = function render (template, view, partials, tags) {
+    if (typeof template !== 'string') {
+      throw new TypeError('Invalid template! Template should be a "string" ' +
+                          'but "' + typeStr(template) + '" was given as the first ' +
+                          'argument for mustache#render(template, view, partials)');
+    }
+
+    return defaultWriter.render(template, view, partials, tags);
+  };
+
+  // This is here for backwards compatibility with 0.4.x.,
+  /*eslint-disable */ // eslint wants camel cased function name
+  mustache.to_html = function to_html (template, view, partials, send) {
+    /*eslint-enable*/
+
+    var result = mustache.render(template, view, partials);
+
+    if (isFunction(send)) {
+      send(result);
+    } else {
+      return result;
+    }
+  };
+
+  // Export the escaping function so that the user may override it.
+  // See https://github.com/janl/mustache.js/issues/244
+  mustache.escape = escapeHtml;
+
+  // Export these mainly for testing, but also for advanced usage.
+  mustache.Scanner = Scanner;
+  mustache.Context = Context;
+  mustache.Writer = Writer;
+
+  return mustache;
+}));
+
+
+/***/ }),
+
+/***/ "./src/index.js":
+/*!**********************!*\
+  !*** ./src/index.js ***!
+  \**********************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var mustache__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! mustache */ "./node_modules/mustache/mustache.js");
+/* harmony import */ var mustache__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(mustache__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _views_DepartureView__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./views/DepartureView */ "./src/views/DepartureView.js");
+/* harmony import */ var _views_ArrivalView__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./views/ArrivalView */ "./src/views/ArrivalView.js");
+/* harmony import */ var _views_SearchView__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./views/SearchView */ "./src/views/SearchView.js");
+/* harmony import */ var _views_DelaysView__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./views/DelaysView */ "./src/views/DelaysView.js");
+/* harmony import */ var _modules_Router__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./modules/Router */ "./src/modules/Router.js");
+/* harmony import */ var _templates_base_mustache__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./templates/base.mustache */ "./src/templates/base.mustache");
+/* harmony import */ var _templates_base_mustache__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_templates_base_mustache__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _templates_search_mustache__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./templates/search.mustache */ "./src/templates/search.mustache");
+/* harmony import */ var _templates_search_mustache__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_templates_search_mustache__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var _templates_clock_mustache__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./templates/clock.mustache */ "./src/templates/clock.mustache");
+/* harmony import */ var _templates_clock_mustache__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(_templates_clock_mustache__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var _modules_Clock__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./modules/Clock */ "./src/modules/Clock.js");
+/* harmony import */ var _css_main_css__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../css/main.css */ "./css/main.css");
+/* harmony import */ var _css_main_css__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(_css_main_css__WEBPACK_IMPORTED_MODULE_10__);
+
+
+
+
+
+
+
+
+
+
+
+
+// eslint-disable-next-line no-console
+if (window.location.hostname !== 'localhost') console.log = () => { };
+
+const root = document.getElementById('root');
+
+const navSection = document.createElement('section');
+navSection.dataset.sectionName = 'nav';
+
+const div = document.createElement('div');
+div.innerHTML = mustache__WEBPACK_IMPORTED_MODULE_0___default.a.render(_templates_base_mustache__WEBPACK_IMPORTED_MODULE_6___default.a, {}, {
+    search: _templates_search_mustache__WEBPACK_IMPORTED_MODULE_7___default.a,
+    clock: _templates_clock_mustache__WEBPACK_IMPORTED_MODULE_8___default.a,
+});
+
+navSection.appendChild(div.firstChild);
+root.appendChild(navSection);
+
+window.router = new _modules_Router__WEBPACK_IMPORTED_MODULE_5__["default"](root);
+window.router
+    .register('/', _views_DepartureView__WEBPACK_IMPORTED_MODULE_1__["default"])
+    .register('/departure', _views_DepartureView__WEBPACK_IMPORTED_MODULE_1__["default"])
+    .register('/arrival', _views_ArrivalView__WEBPACK_IMPORTED_MODULE_2__["default"])
+    .register('/delays', _views_DelaysView__WEBPACK_IMPORTED_MODULE_4__["default"])
+    .register('/search', _views_SearchView__WEBPACK_IMPORTED_MODULE_3__["default"]);
+
+window.router.start();
+
+const searchButton = document.getElementsByClassName('search__button')[0];
+searchButton.addEventListener('click', event => {
+    event.preventDefault();
+    const searchInput = document.getElementsByClassName('search__input')[0];
+    const searchQuery = searchInput.value;
+    searchInput.value = '';
+    window.router.open('/search', searchQuery);
+});
+
+Object(_modules_Clock__WEBPACK_IMPORTED_MODULE_9__["default"])('clock');
+
+
+/***/ }),
+
+/***/ "./src/modules/Clock.js":
+/*!******************************!*\
+  !*** ./src/modules/Clock.js ***!
+  \******************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return startClock; });
+function checkTime(_i) {
+    let i = _i;
+    if (i < 10) {
+        i = `0${i}`;
+    }
+    return i;
+}
+
+function startClock(divId) {
+    const today = new Date();
+    const hh = today.getHours();
+    let mm = today.getMinutes();
+    let ss = today.getSeconds();
+    mm = checkTime(mm);
+    ss = checkTime(ss);
+    document.getElementById(divId).innerHTML = `${hh}:${mm}:${ss}`;
+    setTimeout(() => {
+        startClock(divId);
+    }, 500);
+}
+
+
+/***/ }),
+
+/***/ "./src/modules/Router.js":
+/*!*******************************!*\
+  !*** ./src/modules/Router.js ***!
+  \*******************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Router; });
+class Router {
+    constructor(root) {
+        if (Router.__instance) {
+            return Router.__instance;
+        }
+
+        this.routes = {};
+        this.root = root;
+
+        Router.__instance = this;
+    }
+
+    /**
+     * @param {string} path
+     * @param {BaseView} View
+     */
+    register(path, View) {
+        this.routes[path] = {
+            View,
+            view: null,
+            el: null,
+        };
+        return this;
+    }
+
+    open(path, params) {
+        const route = this.routes[path];
+
+        if (!route) {
+            this.open('/');
+            return;
+        }
+
+        if (route.View === null) {
+            this.open('/');
+            return;
+        }
+
+        if (window.location.pathname !== path) {
+            window.history.pushState(
+                null,
+                '',
+                path,
+            );
+        }
+
+        const { View } = route;
+        let { view, el } = route;
+
+        if (!el) {
+            el = document.createElement('section');
+            this.root.appendChild(el);
+        }
+
+        if (!view) {
+            view = new View(el);
+        }
+
+        if (!view.active) {
+            Object.values(this.routes).forEach(({ view }) => {
+                if (view && view.active) {
+                    view.hide();
+                }
+            });
+        }
+        view.show(params);
+        this.routes[path] = { View, view, el };
+    }
+
+    start() {
+        this.root.addEventListener('click', event => {
+            if (!(event.target instanceof HTMLAnchorElement)) {
+                return;
+            }
+
+            event.preventDefault();
+            const link = event.target;
+
+            console.log({
+                pathname: link.pathname,
+            });
+
+            this.open(link.pathname);
+        });
+
+        window.addEventListener('popstate', () => {
+            const currentPath = window.location.pathname;
+            this.open(currentPath);
+        });
+
+        const currentPath = window.location.pathname;
+
+        this.open(currentPath);
+    }
+}
+
+
+/***/ }),
+
+/***/ "./src/modules/Schedule.js":
+/*!*********************************!*\
+  !*** ./src/modules/Schedule.js ***!
+  \*********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Schedule; });
+class Schedule {
+    constructor() {
+        if (Schedule.__instance) {
+            return Schedule.__instance;
+        }
+
+        this.schedule = {
+            departure: null,
+            arrival: null,
+        };
+
+        Schedule.__instance = this;
+    }
+
+    getSchedule(event) {
+        if (this.schedule[event]) {
+            console.log('Schedule from cache.');
+            return Promise.resolve(this.schedule[event]);
+        }
+
+        console.log('Performing api request.');
+        return Schedule.downloadSchedule(event)
+            .then(response => response.json())
+            .then(data => {
+                this.schedule[event] = data.schedule;
+                return this.schedule[event];
+            })
+            .catch(error => {
+                console.log(error);
+            });
+    }
+
+    // ввиду отсутствия в api расписания информации о задержках,
+    //     они генерируются случайным образом, если время уже прошло
+    getDelays() {
+        const depDelays = new Promise(resolve => {
+            const delays = [];
+            const timeNow = new Date();
+
+            if (this.schedule.departure) {
+                this.schedule.departure.forEach(flight => {
+                    const timeDep = new Date(flight.departure);
+                    const isDelayed = Math.floor(Math.random() * 2) === 1;
+                    if (timeNow - timeDep > 0 && isDelayed) {
+                        delays.push(flight);
+                    }
+                });
+                resolve(delays);
+            } else {
+                Schedule.downloadSchedule('departure')
+                    .then(response => response.json())
+                    .then(data => {
+                        this.schedule.departure = data.schedule;
+                        this.schedule.departure.forEach(flight => {
+                            const timeDep = new Date(flight.departure);
+                            const isDelayed = Math.floor(Math.random() * 2) === 1;
+                            if (timeNow - timeDep > 0 && isDelayed) {
+                                delays.push(flight);
+                            }
+                        });
+                        resolve(delays);
+                    })
+                    .catch(error => {
+                        console.log(error);
+                    });
+            }
+        });
+
+        const arrDelays = new Promise(resolve => {
+            const delays = [];
+            const timeNow = new Date();
+
+            if (this.schedule.arrival) {
+                this.schedule.arrival.forEach(flight => {
+                    const timeArr = new Date(flight.departure);
+                    const isDelayed = Math.floor(Math.random() * 2) === 1;
+                    if (timeNow - timeArr > 0 && isDelayed) {
+                        delays.push(flight);
+                    }
+                });
+                resolve(delays);
+            } else {
+                Schedule.downloadSchedule('arrival')
+                    .then(response => response.json())
+                    .then(data => {
+                        this.schedule.arrival = data.schedule;
+                        this.schedule.arrival.forEach(flight => {
+                            const timeArr = new Date(flight.departure);
+                            const isDelayed = Math.floor(Math.random() * 2) === 1;
+                            if (timeNow - timeArr > 0 && isDelayed) {
+                                delays.push(flight);
+                            }
+                        });
+                        resolve(delays);
+                    })
+                    .catch(error => {
+                        console.log(error);
+                    });
+            }
+        });
+
+        return Promise.all([depDelays, arrDelays]);
+    }
+
+    search(_query) {
+        const query = _query.replace(/\s/g, '').toLowerCase();
+
+        const depSearch = new Promise(resolve => {
+            const results = [];
+
+            if (this.schedule.departure) {
+                this.schedule.departure.forEach(flight => {
+                    if (flight.thread.number.replace(/\s/g, '').toLowerCase().indexOf(query) !== -1) {
+                        results.push(flight);
+                    }
+                });
+                resolve(results);
+            } else {
+                Schedule.downloadSchedule('departure')
+                    .then(response => response.json())
+                    .then(data => {
+                        this.schedule.departure = data.schedule;
+                        this.schedule.departure.forEach(flight => {
+                            if (flight.thread.number.replace(/\s/g, '').toLowerCase().indexOf(query) !== -1) {
+                                results.push(flight);
+                            }
+                        });
+                        resolve(results);
+                    })
+                    .catch(error => {
+                        console.log(error);
+                    });
+            }
+        });
+
+        const arrSearch = new Promise(resolve => {
+            const results = [];
+
+            if (this.schedule.arrival) {
+                this.schedule.arrival.forEach(flight => {
+                    if (flight.thread.number.replace(/\s/g, '').toLowerCase().indexOf(query) !== -1) {
+                        results.push(flight);
+                    }
+                });
+                resolve(results);
+            } else {
+                Schedule.downloadSchedule('arrival')
+                    .then(response => response.json())
+                    .then(data => {
+                        this.schedule.arrival = data.schedule;
+                        this.schedule.arrival.forEach(flight => {
+                            if (flight.thread.number.replace(/\s/g, '').toLowerCase().indexOf(query) !== -1) {
+                                results.push(flight);
+                            }
+                        });
+                        resolve(results);
+                    })
+                    .catch(error => {
+                        console.log(error);
+                    });
+            }
+        });
+
+        return Promise.all([depSearch, arrSearch]);
+    }
+
+    static downloadSchedule(event) {
+        const url = `/api?event=${event}`;
+
+        return fetch(url, {
+            method: 'GET',
+        });
+    }
+}
+
+
+/***/ }),
+
+/***/ "./src/templates/base.mustache":
+/*!*************************************!*\
+  !*** ./src/templates/base.mustache ***!
+  \*************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"nav\">\n    {{> clock }}\n    <div class=\"search\">\n        {{> search }}\n    </div>\n    <div class=\"container\">\n        <h1><a href=\"/arrival\">Прилет</a></h1>\n        <h1><a href=\"/departure\">Вылет</a></h1>\n        <h1><a href=\"/delays\">Задержки</a></h1>\n    </div>\n</div>";
+
+/***/ }),
+
+/***/ "./src/templates/clock.mustache":
+/*!**************************************!*\
+  !*** ./src/templates/clock.mustache ***!
+  \**************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"container\">\n    <div class=\"clock__timer\" id=\"clock\">\n    </div>\n</div>";
+
+/***/ }),
+
+/***/ "./src/templates/schedule.mustache":
+/*!*****************************************!*\
+  !*** ./src/templates/schedule.mustache ***!
+  \*****************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"container\">\n    <table border=\"1\">\n        <tr>\n            <th>Время</th>\n            <th>Направление</th>\n            <th>Номер рейса</th>\n        </tr>\n        {{#flights}}\n        <tr>\n            <th>{{#departure}}{{formatDate}}{{/departure}}{{#arrival}}{{formatDate}}{{/arrival}}</th>\n            <th>{{thread.short_title}}</th>\n            <th>{{thread.number}}</th>\n        </tr>\n        {{/flights}}\n    </table>\n</div>";
+
+/***/ }),
+
+/***/ "./src/templates/search.mustache":
+/*!***************************************!*\
+  !*** ./src/templates/search.mustache ***!
+  \***************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<form class=\"search__form\">\n    <input class=\"search__input\" type=\"text\" placeholder=\"Поиск по номеру рейса\">\n    <button class=\"search__button\">Поиск</button>\n</form> ";
+
+/***/ }),
+
+/***/ "./src/views/ArrivalView.js":
+/*!**********************************!*\
+  !*** ./src/views/ArrivalView.js ***!
+  \**********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return MenuView; });
+/* harmony import */ var mustache__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! mustache */ "./node_modules/mustache/mustache.js");
+/* harmony import */ var mustache__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(mustache__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _BaseView__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./BaseView */ "./src/views/BaseView.js");
+/* harmony import */ var _modules_Schedule__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../modules/Schedule */ "./src/modules/Schedule.js");
+/* harmony import */ var _templates_schedule_mustache__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../templates/schedule.mustache */ "./src/templates/schedule.mustache");
+/* harmony import */ var _templates_schedule_mustache__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_templates_schedule_mustache__WEBPACK_IMPORTED_MODULE_3__);
+
+
+
+
+
+class MenuView extends _BaseView__WEBPACK_IMPORTED_MODULE_1__["default"] {
+    render() {
+        this.el.innerHTML = '';
+
+        const arrivalSection = document.createElement('section');
+        arrivalSection.dataset.sectionName = 'arrival';
+
+        const divLoad = document.createElement('div');
+        divLoad.innerHTML = '<div class="message">Загрузка</div>';
+        arrivalSection.appendChild(divLoad.firstChild);
+        this.el.appendChild(arrivalSection);
+
+        const scheduler = new _modules_Schedule__WEBPACK_IMPORTED_MODULE_2__["default"]();
+        scheduler.getSchedule('arrival')
+            .then(schedule => {
+                const viewData = {
+                    flights: schedule,
+                    formatDate() {
+                        const time = new Date(this);
+                        const localTime = time.toLocaleString('ru');
+                        return localTime;
+                    },
+                };
+
+                const div = document.createElement('div');
+                div.innerHTML = mustache__WEBPACK_IMPORTED_MODULE_0___default.a.render(_templates_schedule_mustache__WEBPACK_IMPORTED_MODULE_3___default.a, viewData);
+                arrivalSection.innerHTML = '';
+                arrivalSection.appendChild(div.firstChild);
+
+                this.el.appendChild(arrivalSection);
+            })
+            .catch(error => {
+                console.log(error);
+            });
+
+        mustache__WEBPACK_IMPORTED_MODULE_0___default.a.parse(_templates_schedule_mustache__WEBPACK_IMPORTED_MODULE_3___default.a);
+    }
+}
+
+
+/***/ }),
+
+/***/ "./src/views/BaseView.js":
+/*!*******************************!*\
+  !*** ./src/views/BaseView.js ***!
+  \*******************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return BaseView; });
+class BaseView {
+    constructor(el) {
+        this.el = el;
+
+        this.el.dataset.view = this.constructor.name;
+        this.el.hidden = true;
+    }
+
+    get active() {
+        return !this.el.hidden;
+    }
+
+    hide() {
+        this.el.hidden = true;
+    }
+
+    show(params) {
+        this.render(params);
+        this.el.hidden = false;
+    }
+
+    // eslint-disable-next-line class-methods-use-this
+    render() {
+        throw new Error('This method must be impemented!');
+    }
+}
+
+
+/***/ }),
+
+/***/ "./src/views/DelaysView.js":
+/*!*********************************!*\
+  !*** ./src/views/DelaysView.js ***!
+  \*********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return MenuView; });
+/* harmony import */ var mustache__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! mustache */ "./node_modules/mustache/mustache.js");
+/* harmony import */ var mustache__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(mustache__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _BaseView__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./BaseView */ "./src/views/BaseView.js");
+/* harmony import */ var _modules_Schedule__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../modules/Schedule */ "./src/modules/Schedule.js");
+/* harmony import */ var _templates_schedule_mustache__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../templates/schedule.mustache */ "./src/templates/schedule.mustache");
+/* harmony import */ var _templates_schedule_mustache__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_templates_schedule_mustache__WEBPACK_IMPORTED_MODULE_3__);
+
+
+
+
+
+class MenuView extends _BaseView__WEBPACK_IMPORTED_MODULE_1__["default"] {
+    render() {
+        this.el.innerHTML = '';
+
+        const delaysSection = document.createElement('section');
+        delaysSection.dataset.sectionName = 'delays';
+
+        const divLoad = document.createElement('div');
+        divLoad.innerHTML = '<div class="message">Загрузка</div>';
+        delaysSection.appendChild(divLoad.firstChild);
+        this.el.appendChild(delaysSection);
+
+        const scheduler = new _modules_Schedule__WEBPACK_IMPORTED_MODULE_2__["default"]();
+        scheduler.getDelays()
+            .then(_delays => {
+                const delays = _delays[0].concat(_delays[1]);
+                const viewData = {
+                    flights: delays,
+                    formatDate() {
+                        const time = new Date(this);
+                        const localTime = time.toLocaleString('ru');
+                        return localTime;
+                    },
+                };
+
+                const div = document.createElement('div');
+                div.innerHTML = mustache__WEBPACK_IMPORTED_MODULE_0___default.a.render(_templates_schedule_mustache__WEBPACK_IMPORTED_MODULE_3___default.a, viewData);
+                delaysSection.innerHTML = '';
+                delaysSection.appendChild(div.firstChild);
+
+                this.el.appendChild(delaysSection);
+            })
+            .catch(error => {
+                console.log(error);
+            });
+
+        mustache__WEBPACK_IMPORTED_MODULE_0___default.a.parse(_templates_schedule_mustache__WEBPACK_IMPORTED_MODULE_3___default.a);
+    }
+}
+
+
+/***/ }),
+
+/***/ "./src/views/DepartureView.js":
+/*!************************************!*\
+  !*** ./src/views/DepartureView.js ***!
+  \************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return MenuView; });
+/* harmony import */ var mustache__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! mustache */ "./node_modules/mustache/mustache.js");
+/* harmony import */ var mustache__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(mustache__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _BaseView__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./BaseView */ "./src/views/BaseView.js");
+/* harmony import */ var _modules_Schedule__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../modules/Schedule */ "./src/modules/Schedule.js");
+/* harmony import */ var _templates_schedule_mustache__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../templates/schedule.mustache */ "./src/templates/schedule.mustache");
+/* harmony import */ var _templates_schedule_mustache__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_templates_schedule_mustache__WEBPACK_IMPORTED_MODULE_3__);
+
+
+
+
+
+class MenuView extends _BaseView__WEBPACK_IMPORTED_MODULE_1__["default"] {
+    render() {
+        this.el.innerHTML = '';
+
+        const departureSection = document.createElement('section');
+        departureSection.dataset.sectionName = 'departure';
+
+        const divLoad = document.createElement('div');
+        divLoad.innerHTML = '<div class="message">Загрузка</div>';
+        departureSection.appendChild(divLoad.firstChild);
+        this.el.appendChild(departureSection);
+
+        const scheduler = new _modules_Schedule__WEBPACK_IMPORTED_MODULE_2__["default"]();
+        scheduler.getSchedule('departure')
+            .then(schedule => {
+                const viewData = {
+                    flights: schedule,
+                    formatDate() {
+                        const time = new Date(this);
+                        const localTime = time.toLocaleString('ru');
+                        return localTime;
+                    },
+                };
+
+                const div = document.createElement('div');
+                div.innerHTML = mustache__WEBPACK_IMPORTED_MODULE_0___default.a.render(_templates_schedule_mustache__WEBPACK_IMPORTED_MODULE_3___default.a, viewData);
+                departureSection.innerHTML = '';
+                departureSection.appendChild(div.firstChild);
+
+                this.el.appendChild(departureSection);
+            })
+            .catch(error => {
+                console.log(error);
+            });
+
+        mustache__WEBPACK_IMPORTED_MODULE_0___default.a.parse(_templates_schedule_mustache__WEBPACK_IMPORTED_MODULE_3___default.a);
+    }
+}
+
+
+/***/ }),
+
+/***/ "./src/views/SearchView.js":
+/*!*********************************!*\
+  !*** ./src/views/SearchView.js ***!
+  \*********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return SearchView; });
+/* harmony import */ var mustache__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! mustache */ "./node_modules/mustache/mustache.js");
+/* harmony import */ var mustache__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(mustache__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _BaseView__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./BaseView */ "./src/views/BaseView.js");
+/* harmony import */ var _modules_Schedule__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../modules/Schedule */ "./src/modules/Schedule.js");
+/* harmony import */ var _templates_schedule_mustache__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../templates/schedule.mustache */ "./src/templates/schedule.mustache");
+/* harmony import */ var _templates_schedule_mustache__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_templates_schedule_mustache__WEBPACK_IMPORTED_MODULE_3__);
+
+
+
+
+
+class SearchView extends _BaseView__WEBPACK_IMPORTED_MODULE_1__["default"] {
+    render(params) {
+        this.el.innerHTML = '';
+
+        const searchSection = document.createElement('section');
+        searchSection.dataset.sectionName = 'search';
+
+        const divLoad = document.createElement('div');
+        divLoad.innerHTML = '<div class="message">Выполняется поиск</div>';
+        searchSection.appendChild(divLoad.firstChild);
+        this.el.appendChild(searchSection);
+
+        if (!params) {
+            const searchParams = new URLSearchParams(window.location.href.split('?')[1]);
+            // eslint-disable-next-line no-param-reassign
+            params = searchParams.get('search');
+        }
+
+        const scheduler = new _modules_Schedule__WEBPACK_IMPORTED_MODULE_2__["default"]();
+        if (params) {
+            scheduler.search(params)
+                .then(_results => {
+                    const results = _results[0].concat(_results[1]);
+                    if (results.length > 0) {
+                        const viewData = {
+                            flights: results,
+                            formatDate() {
+                                const time = new Date(this);
+                                const localTime = time.toLocaleString('ru');
+                                return localTime;
+                            },
+                        };
+
+                        // eslint-disable-next-line no-shadow
+                        const div = document.createElement('div');
+                        div.innerHTML = mustache__WEBPACK_IMPORTED_MODULE_0___default.a.render(_templates_schedule_mustache__WEBPACK_IMPORTED_MODULE_3___default.a, viewData);
+                        searchSection.innerHTML = `<div class="message">Результаты поиска по запросу &nbsp<b>${params}</b>:</div>`;
+                        searchSection.appendChild(div.firstChild);
+
+                        this.el.appendChild(searchSection);
+                    } else {
+                        this.noEntriesFound(searchSection, params);
+                    }
+                })
+                .catch(error => {
+                    console.log(error);
+                });
+        } else {
+            this.noEntriesFound(searchSection, params);
+        }
+
+        mustache__WEBPACK_IMPORTED_MODULE_0___default.a.parse(_templates_schedule_mustache__WEBPACK_IMPORTED_MODULE_3___default.a);
+    }
+
+    noEntriesFound(searchSection, params) {
+        const div = document.createElement('div');
+        if (/^\s+$/.test(params) || !params) {
+            div.innerHTML = '<div class="message">Пустой поисковый запрос</div>';
+        } else {
+            div.innerHTML = `<div class="message">По запросу &nbsp<b>${params}</b>&nbsp ничего не нашлось</div>`;
+        }
+        // eslint-disable-next-line no-param-reassign
+        searchSection.innerHTML = '';
+        searchSection.appendChild(div.firstChild);
+
+        this.el.appendChild(searchSection);
+    }
+
+    hide() {
+        super.hide();
+        this.el.innerHTML = '';
+    }
+}
+
+
+/***/ })
+
+/******/ });
+//# sourceMappingURL=main.js.map
