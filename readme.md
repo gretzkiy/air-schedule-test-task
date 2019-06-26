@@ -15,7 +15,8 @@
 
 ```bash
 npm install
-npx webpack && npm start
+npm run build:prod
+npm run server
 ```
 
 ### Использованные технологии
