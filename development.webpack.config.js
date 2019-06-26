@@ -1,5 +1,7 @@
+/* eslint-disable import/no-extraneous-dependencies */
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const HtmlWebPackPlugin = require('html-webpack-plugin');
 
 module.exports = {
     entry: './src/index.js',
@@ -15,7 +17,9 @@ module.exports = {
             {
                 test: /\.html$/,
                 exclude: /node_modules/,
-                use: { loader: 'html-loader' },
+                use: {
+                    loader: 'html-loader',
+                },
             },
             {
                 test: /\.mustache$/,
@@ -31,9 +35,14 @@ module.exports = {
             },
         ],
     },
+
     plugins: [
         new MiniCssExtractPlugin({
             filename: 'styles.css',
+        }),
+        new HtmlWebPackPlugin({
+            template: './src/index.html',
+            filename: './index.html',
         }),
     ],
 };

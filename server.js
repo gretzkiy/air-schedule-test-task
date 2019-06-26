@@ -59,8 +59,9 @@ app.use('/api',  (request, response) => {
     });
 });
 
-app.use(fallback('src/index.html', { root: rootDir }));
+app.use(fallback('dist/index.html', { root: rootDir }));
 
-app.listen(3000, () => {
-    console.log(`Listening http://localhost:3000`);
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+    console.log(`Listening http://localhost:${PORT}`);
 });

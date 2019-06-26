@@ -57,6 +57,7 @@ export default class Router {
         }
 
         if (!view.active) {
+            // eslint-disable-next-line no-shadow
             Object.values(this.routes).forEach(({ view }) => {
                 if (view && view.active) {
                     view.hide();
