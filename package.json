@@ -5,11 +5,11 @@
   "scripts": {
     "lint": "./node_modules/.bin/eslint .",
     "prebuild:dev": "rm -rf dist/",
-    "build:dev": "./node_modules/.bin/webpack --config development.webpack.config.js",
+    "build:dev": "./node_modules/.bin/webpack --config webpack.development.config.js",
     "prebuild:prod": "rm -rf dist/",
-    "build:prod": "./node_modules/.bin/webpack --config production.webpack.config.js",
+    "build:prod": "NODE_ENV=production ./node_modules/.bin/webpack --config webpack.production.config.js",
     "prewebpack_watch": "rm -rf dist/",
-    "webpack_watch": "./node_modules/.bin/webpack --config development.webpack.config.js --watch",
+    "webpack_watch": "./node_modules/.bin/webpack --config webpack.development.config.js --watch",
     "server": "node server.js",
     "clean": "rm -rf node_modules/ dist/"
   },
