@@ -1,0 +1,6 @@
+node_modules
+dist
+readme.md
+.gitignore
+.git
+webpack.development.config.js
