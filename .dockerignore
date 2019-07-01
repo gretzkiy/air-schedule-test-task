@@ -4,3 +4,7 @@ readme.md
 .gitignore
 .git
 webpack.development.config.js
+server
+docker-compose.yml
+.dockerignore
+Dockerfile

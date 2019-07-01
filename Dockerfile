@@ -1,6 +1,7 @@
-FROM node:11.4.0
+# Stage 0 = build-stage
+FROM node:11.4.0 as build-stage
 
-WORKDIR /app
+WORKDIR /app/
 
 COPY package*.json ./
 
@@ -10,10 +11,9 @@ COPY ./ ./
 
 RUN npm run build:prod
 
-EXPOSE 4000
+# Stage 1
+FROM nginx
 
-ENV NODE_ENV production
+COPY --from=build-stage /app/dist/ /app/dist/
 
-ENV PORT 4000
-
-CMD ["node", "server.js"]
+COPY --from=build-stage /app/nginx.conf /etc/nginx/nginx.conf

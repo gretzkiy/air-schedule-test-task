@@ -10,7 +10,7 @@
     "build:prod": "NODE_ENV=production ./node_modules/.bin/webpack --config webpack.production.config.js",
     "prewebpack_watch": "rm -rf dist/",
     "webpack_watch": "./node_modules/.bin/webpack --config webpack.development.config.js --watch",
-    "server": "node server.js",
+    "server": "node server/server.js",
     "clean": "rm -rf node_modules/ dist/"
   },
   "author": "Andrey Dikarev",

@@ -1,11 +1,10 @@
-/* eslint-disable */
 const express = require('express');
 const fallback = require('express-history-api-fallback');
 const https = require('https');
 const config = require('./config.js');
 
 const app = express();
-const rootDir = `${__dirname}`;
+const rootDir = `${__dirname}/..`;
 
 app.use(express.static(`${rootDir}/dist`));
 app.use('/api',  (request, response) => {

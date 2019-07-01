@@ -1,0 +1,15 @@
+version: '3'
+services:
+  air-static:
+    container_name: air-static
+    image: dikarev/air-schedule-static
+    restart: always
+    ports:
+      - '80:80'
+    links:
+      - air-api
+  air-api:
+    container_name: air-api
+    image: dikarev/air-schedule-api
+    ports:
+      - '4000:4000'
