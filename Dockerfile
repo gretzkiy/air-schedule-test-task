@@ -1,5 +1,5 @@
 # Stage 0 = build-stage
-FROM node:11.4.0 as build-stage
+FROM node:11.4.0-alpine as build-stage
 
 WORKDIR /app/
 
@@ -12,7 +12,7 @@ COPY ./ ./
 RUN npm run build:prod
 
 # Stage 1
-FROM nginx
+FROM nginx:1.17.1-alpine
 
 COPY --from=build-stage /app/dist/ /app/dist/
 
