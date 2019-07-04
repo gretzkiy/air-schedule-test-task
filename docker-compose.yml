@@ -8,5 +8,8 @@ services:
     depends_on:
       - air-api
   air-api:
-    build: https://github.com/gretzkiy/air-schedule-api-server.git
+    # build: https://github.com/gretzkiy/air-schedule-api-server.git
+    image: air_api
+    environment:
+      - API_TOKEN=${API_TOKEN}
     restart: always
