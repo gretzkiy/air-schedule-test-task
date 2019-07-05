@@ -14,9 +14,9 @@
 ## Запуск
 
 ```bash
-npm install
-npm run build:prod
-npm run server
+$ npm install
+$ npm run build:prod
+$ API_TOKEN=your-api-token npm run server
 ```
 
 ### Использованные технологии
