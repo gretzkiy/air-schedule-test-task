@@ -1,74 +1,68 @@
 const express = require('express');
 const fallback = require('express-history-api-fallback');
-// const proxy = require('express-http-proxy');
-const config = require('./config.js');
+const axios = require('axios');
 
 const app = express();
 const rootDir = `${__dirname}/..`;
 
-// app.use((req, res, next) => {
-//     console.log(req.url);
-//     console.log(res);
-//     next();
-// });
+const PORT = process.env.PORT || 3000;
+const API_TOKEN = process.env.API_TOKEN;
+if (!API_TOKEN) {
+    console.log('API_TOKEN must be specified.');
+    process.exit(1);
+}
 
 app.use(express.static(`${rootDir}/dist`));
-// app.use('/api',  (request, response) => {
-//     if (request.query.event !== 'departure' && request.query.event !== 'arrival') {        
-//         response.status(400).send('Неверный запрос.');
-//         return;
-//     }
 
-//     const event = request.query.event;
-//     const now = new Date();
-//     const today = now.toISOString().split('T')[0];
+const acceptedSchheduleEvents = [
+    'departure',
+    'arrival',
+];
 
-//     const url = `https://api.rasp.yandex.net/v3.0/schedule/?apikey=${config.apikey}&station=svo&lang=ru_RU&format=json&date=${today}&transport_types=plane&event=${event}&system=iata`;
+app.use('/api', (request, response) => {
+    const { event } = request.query;
 
-//     console.log('Making request to ', url);
-    
-//     let schedule = null;
-//     https.get(url, (res) => {
-//         const { statusCode } = res;
-//         const contentType = res.headers['content-type'];
+    if (!acceptedSchheduleEvents.includes(event)) {
 
-//         let error;
-//         if (statusCode !== 200) {
-//             error = new Error('Request Failed.\n' +
-//                 `Status Code: ${statusCode}`);
-//         } else if (!/^application\/json/.test(contentType)) {
-//             error = new Error('Invalid content-type.\n' +
-//                 `Expected application/json but received ${contentType}`);
-//         }
-//         if (error) {
-//             console.error(error.message);
-//             res.resume();
-//             response.status(500).send('Не удается получить расписание.');
-//             return;
-//         }
+        return response
+            .status(400)
+            .json({
+                status: 400,
+                error: true,
+                message: `Schedule event must be: ${acceptedSchheduleEvents.join(' or ')}. Got ${event}.`,
+            });
+    }
 
-//         res.setEncoding('utf8');
-//         let rawData = '';
-//         res.on('data', (chunk) => { rawData += chunk; });
-//         res.on('end', () => {
-//             try {
-//                 schedule = JSON.parse(rawData);
-//                 response.json(schedule);
-//             } catch (e) {
-//                 console.error(e.message);
-//             }
-//         });
-//     }).on('error', (e) => {
-//         console.error(`Got error: ${e.message}`);
-//         response.status(500).send('Не удается получить расписание.');
-//     });
-// });
+    const now = new Date();
+    const today = now.toISOString().split('T')[0];
 
-// app.use('/api', proxy('http://localhost:4000'));
+    const url = `https://api.rasp.yandex.net/v3.0/schedule/?\
+station=svo&lang=ru_RU\
+&format=json\
+&transport_types=plane\
+&system=iata\
+&date=${today}\
+&event=${event}\
+&apikey=${API_TOKEN}`;
+
+    axios.get(url)
+        .then(apiResponse => {
+            return response
+                .json(apiResponse.data);
+        })
+        .catch(apiError => {
+            return response
+                .status(500)
+                .json({
+                    status: 500,
+                    error: true,
+                    message: 'Internal API server error.',
+                });
+        });
+});
 
 app.use(fallback('dist/index.html', { root: rootDir }));
 
-const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
     console.log(`Listening http://localhost:${PORT}`);
 });
