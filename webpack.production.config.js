@@ -29,10 +29,11 @@ module.exports = {
                 use: { loader: 'html-loader' },
             },
             {
-                test: /\.css$/,
+                test: /\.scss$/,
                 use: [
                     MiniCssExtractPlugin.loader,
                     'css-loader',
+                    'sass-loader',
                 ],
             },
             {

@@ -8,7 +8,7 @@ import baseTemplate from './templates/base.mustache';
 import searchTemplate from './templates/search.mustache';
 import clockTemplate from './templates/clock.mustache';
 import startClock from './modules/Clock';
-import './static/css/main.css';
+import './static/styles/main.scss';
 
 // eslint-disable-next-line no-console
 if (window.location.hostname !== 'localhost') console.log = () => { };
