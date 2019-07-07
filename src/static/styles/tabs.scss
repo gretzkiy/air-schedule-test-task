@@ -1,0 +1,41 @@
+$tab-underline-size: 3px;
+
+.tabs-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+
+    .tabs-list {
+        width: 70%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: start;
+
+        .tab {
+            text-decoration: none;
+            text-transform: uppercase;
+            color: #000;
+            margin-right: 15px;
+
+            &:hover {
+                border-bottom: $tab-underline-size solid #000;
+                animation-duration: 0.5s;
+                animation-name: draw-bottom-border;
+
+                @keyframes draw-bottom-border {
+                    from {
+                        border-bottom: $tab-underline-size solid rgb(255, 255, 255);
+                    }
+
+                    to {
+                        border-bottom: $tab-underline-size solid rgb(0, 0, 0);
+                    }
+                }
+            }
+
+            &.active {
+                border-bottom: $tab-underline-size solid #000;
+            }
+        }
+    }
+}

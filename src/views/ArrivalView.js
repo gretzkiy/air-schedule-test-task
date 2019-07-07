@@ -40,4 +40,18 @@ export default class MenuView extends BaseView {
 
         Mustache.parse(tableTemplate);
     }
+
+    show(pararms) {
+        const tab = document.querySelector('.tab[href="/arrival"');
+        tab.classList.add('active');
+
+        super.show(pararms);
+    }
+
+    hide() {
+        const tab = document.querySelector('.tab[href="/arrival"');
+        tab.classList.remove('active');
+
+        super.hide();
+    }
 }

@@ -1,16 +1,22 @@
-<div class="container">
-    <table border="1">
-        <tr>
-            <th>Время</th>
-            <th>Направление</th>
-            <th>Номер рейса</th>
-        </tr>
+<div class="table-contatiner">
+    <div class="table">
+        <div class="header">
+            <div class="col-time">Время</div>
+            <div class="col-destination">Направление</div>
+            <div class="col-flight-num">Номер рейса</div>
+        </div>
         {{#flights}}
-        <tr>
-            <th>{{#departure}}{{formatDate}}{{/departure}}{{#arrival}}{{formatDate}}{{/arrival}}</th>
-            <th>{{thread.short_title}}</th>
-            <th>{{thread.number}}</th>
-        </tr>
+        <div class="row" data-flight-number="{{thread.number}}">
+            <div class="col-time">
+                {{#departure}}{{formatDate}}{{/departure}}{{#arrival}}{{formatDate}}{{/arrival}}
+            </div>
+            <div class="col-destination">
+                {{thread.short_title}}
+            </div>
+            <div class="col-flight-num">
+                {{thread.number}}
+            </div>
+        </div>
         {{/flights}}
-    </table>
+    </div >
 </div>
