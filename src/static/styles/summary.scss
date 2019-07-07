@@ -1,0 +1,31 @@
+.summary {
+    position: fixed;
+
+    height: calc(100% - 50px);
+    width: 300px;
+
+    border: 2px solid black;
+    border-radius: 5px;
+
+    background-color: aquamarine;
+
+    animation: show-summary .5s forwards;
+
+    @keyframes show-summary {
+        from {
+            right: -310px;
+            top: 25px;
+        }
+
+        to {
+            right: 25px;
+            top: 25px;
+        }
+    }
+
+    .close {
+        position: absolute;
+        top: 5px;
+        right: 5px;
+    }
+}
