@@ -24,6 +24,7 @@ $ API_TOKEN=your-api-token npm run server
 * node.js
 * webpack
 * mustache
+* Sass
 * API Яндекс расписания
 * fetch
 * архитектура приложения - SPA
