@@ -39,8 +39,6 @@ export default class MenuView extends BaseView {
                 const rows = document.getElementsByClassName('row');
                 [...rows].forEach(row => {
                     row.addEventListener('click', event => {
-                        // console.log(event.currentTarget.dataset.flightNumber);
-                        // localStorage.setItem('favFlights', event.currentTarget.dataset.flightNumber);
                         showSummary({ flightNumber: event.currentTarget.dataset.flightNumber });
                     });
                 });

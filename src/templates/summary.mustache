@@ -1,4 +1,17 @@
 <div class="summary">
     <div class="close">Закрыть</div>
-    Номер рейса -- {{ flightNumber }}
+    <div class="report">
+        <div class="reportItem">
+            {{ flight.title }}
+        </div>
+        <div class="reportItem">
+            {{ flight.number }}
+        </div>
+        <div class="reportItem">
+            {{ flight.carrier.title }}
+        </div>
+        <div class="reportItem">
+            {{ flight.vehicle }}
+        </div>
+    </div>
 </div>

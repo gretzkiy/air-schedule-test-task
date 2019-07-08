@@ -12,6 +12,11 @@ export default class Schedule {
         Schedule.__instance = this;
     }
 
+    getFlightInfo(flightNumber) {
+        return this.search(flightNumber)
+            .then(res => res[0].concat(res[1])[0]);
+    }
+
     getSchedule(event) {
         if (this.schedule[event]) {
             console.log('Schedule from cache.');

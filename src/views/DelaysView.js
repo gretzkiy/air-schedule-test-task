@@ -2,6 +2,7 @@ import Mustache from 'mustache';
 import BaseView from './BaseView';
 import Schedule from '../modules/Schedule';
 import tableTemplate from '../templates/schedule.mustache';
+import showSummary from '../modules/Summary';
 
 export default class MenuView extends BaseView {
     render() {
@@ -34,6 +35,14 @@ export default class MenuView extends BaseView {
                 delaysSection.appendChild(div.firstChild);
 
                 this.el.appendChild(delaysSection);
+            })
+            .then(() => {
+                const rows = document.getElementsByClassName('row');
+                [...rows].forEach(row => {
+                    row.addEventListener('click', event => {
+                        showSummary({ flightNumber: event.currentTarget.dataset.flightNumber });
+                    });
+                });
             })
             .catch(error => {
                 console.log(error);

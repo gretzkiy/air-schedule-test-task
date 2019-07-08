@@ -47,11 +47,12 @@ $row-box-shadows: (
         .row {
             @include table-line;
 
-            background-color: #ffffff;
+            background-color: #fff;
             box-shadow: map-get($row-box-shadows, primary);
 
             &:hover {
                 box-shadow: map-get($row-box-shadows, hover);
+                cursor: pointer;
             }
         }
     }
