@@ -1,10 +1,11 @@
-node_modules
-dist
+dist/
+files/
+node_modules/
+server/
 readme.md
 .gitignore
 .git
 webpack.development.config.js
-server
 docker-compose.yml
 .dockerignore
 Dockerfile

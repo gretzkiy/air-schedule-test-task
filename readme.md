@@ -1,5 +1,7 @@
 # Тестовое задание "табло аэропорта"
 
+![GUI Example](./files/gui-example.png)
+
 ## Задание
 
 Разработайте клиентское приложение(сайт), где будет табло аэропорта. У табло должны быть следующие функции:
@@ -9,14 +11,14 @@
 * просмотр задержанных рейсов
 * поиск по номеру рейса
 
-В качестве примера можно посмотреть на http://www.svo.aero/.
+В качестве примера можно посмотреть на [табло Шереметьево](http://www.svo.aero).
 
 ## Запуск
 
 ```bash
-$ npm install
-$ npm run build:prod
-$ API_TOKEN=your-api-token npm run server
+npm install
+npm run build:prod
+API_TOKEN=your-api-token npm run server
 ```
 
 ### Использованные технологии
