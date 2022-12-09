@@ -16,7 +16,7 @@
   "author": "Andrey Dikarev",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.16.4",
+    "express": "^4.17.3",
     "express-history-api-fallback": "^2.2.1",
     "mustache": "^3.0.1"
   },
